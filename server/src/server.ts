@@ -2,12 +2,15 @@ import express from "express";
 import Jwt from "jsonwebtoken";
 import cors from "cors";
 import { JWT_SECRET } from "./config";
+import { UserModel, ContentModel, LinkModel } from "./db/db";
+import {authMiddleware} from "./middleware/middleware"
 
 const app=express();
 app.use(express.json());
 app.use(cors());
 
 app.post("/api/v1/signup", async (req, res)=>{
+    console.log("hhhhhhhhhhh")
     const username=req.body.username;
     const password=req.body.password;
 
@@ -53,3 +56,24 @@ app.post("/api/v1/signin", async(req, res)=>{
         })
     }
 })
+
+app.post("/api/v1/content", authMiddleware, async (req, res)=>{
+    const link=req.body.link;
+    const type=req.body.type;
+
+    await ContentModel.create({
+        link,
+        type,
+        title:req.body.title,
+        //@ts-ignore
+        userId:req.userId,
+        tags:[]
+    })
+
+    res.json({
+        message:"Content uploaded successfully"
+    })
+})
+
+
+app.listen(3000);
