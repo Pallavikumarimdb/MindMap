@@ -10,7 +10,6 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/api/v1/signup", async (req, res)=>{
-    console.log("hhhhhhhhhhh")
     const username=req.body.username;
     const password=req.body.password;
 
@@ -73,6 +72,20 @@ app.post("/api/v1/content", authMiddleware, async (req, res)=>{
     res.json({
         message:"Content uploaded successfully"
     })
+})
+
+
+app.get("/api/v1/content", authMiddleware, async (req, res)=>{
+    //@ts-ignore
+    const userId=req.userId;
+
+    const content=await ContentModel.find({
+        userId:userId
+    }).populate("userId", "username")
+    res.json({
+        content
+    })
+
 })
 
 
