@@ -64,6 +64,7 @@ app.post("/api/v1/content", authMiddleware, async (req, res)=>{
         link,
         type,
         title:req.body.title,
+        // authMiddleware will extract userId and give here
         //@ts-ignore
         userId:req.userId,
         tags:[]
@@ -114,6 +115,7 @@ app.post("/api/v1/brain/share", authMiddleware, async(req, res)=>{
             userId:req.userId
         })
 
+        //TO DO: find race condition here and solve it
         if(existingLink){
             res.json({
                 hash: existingLink.hash
@@ -124,6 +126,7 @@ app.post("/api/v1/brain/share", authMiddleware, async(req, res)=>{
         const hash=random(10);
 
         await LinkModel.create({
+            // authMiddleware will extract userId and give here
             //@ts-ignore
             userId:req.userId,
             hash:hash
@@ -132,6 +135,7 @@ app.post("/api/v1/brain/share", authMiddleware, async(req, res)=>{
         res.json({
             hash
         })
+        // if user want to disable the link
     }else{
         await LinkModel.deleteOne({
             //@ts-ignore
@@ -160,10 +164,12 @@ app.get("/api/v1/brain/:shareLink", async(req, res)=>{
 
     // userId
     const content=await ContentModel.find({
+         // in contentmodel we hava userId to reference
         userId: link.userId
     })
 
     const user=await UserModel.findOne({
+        // in usermodel we hava _id to reference
         _id:link.userId
     })
 
