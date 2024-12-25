@@ -1,5 +1,5 @@
 import express from "express";
-import Jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import cors from "cors";
 import { JWT_SECRET } from "./config";
 import { UserModel, ContentModel, LinkModel } from "./db/db";
@@ -41,7 +41,7 @@ app.post("/api/v1/signin", async(req, res)=>{
     })
 
     if(UserExist){
-        const token=Jwt.sign({
+        const token=jwt.sign({
             id: UserExist._id, 
         },JWT_SECRET);
 
