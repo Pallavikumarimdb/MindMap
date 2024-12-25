@@ -3,12 +3,12 @@ import { ShareIcon } from "../assets/svg/ShareIcon";
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube";
+    type: "twitter" | "youtube" | "general";
 }
 
 export function Card({title, link, type}: CardProps) {
     return <div>
-        <div className="p-4 bg-white rounded-md border-gray-200 max-w-72  border min-h-48 min-w-72">
+        <div className="p-4 bg-white rounded-md border-gray-200   border min-h-48 min-w-72">
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
                     <div className="text-gray-500 pr-2">
@@ -33,11 +33,13 @@ export function Card({title, link, type}: CardProps) {
                 {type === "youtube" && <iframe className="w-full" src={`https://www.youtube.com/embed/${link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
 
                 {type === "twitter" && <blockquote className="twitter-tweet">
-                    <a href={link.replace("x.com", "twitter.com")}></a> 
+                    <a href={`https://twitter.com/${link}`}></a> 
                 </blockquote>}
 
+                {type === "general" && <div>
+                    {link}
+                </div>}
             </div>
         </div>
     </div>
 }
-

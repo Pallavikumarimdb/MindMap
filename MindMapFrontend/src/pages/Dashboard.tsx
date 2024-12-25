@@ -10,7 +10,7 @@ import { useContent } from "../hooks/useContent"
 import { BACKEND_URL } from "../config"
 import axios from "axios"
 
-export function Dashboard() {
+export function  Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const {contents, refresh} = useContent();
 
@@ -18,8 +18,34 @@ export function Dashboard() {
     refresh();
   }, [modalOpen])
 
+  const ContentType1 = {
+    General:"General",
+    Youtube:"Youtube",
+    Twitter:"Twitter",
+  }
+
+  const [contText, setcontText] = useState(() => {
+    // Fetch from localStorage or default to "General"
+    return localStorage.getItem("contText") || "General";
+  });
+
+    // Load the saved value from localStorage when the component mounts
+    useEffect(() => {
+      const savedValue = localStorage.getItem("contText");
+      if (savedValue) {
+        setcontText(savedValue); // Set the state to the saved value
+      }
+    }, []);
+
+  useEffect(() => {
+    localStorage.setItem("contText", contText);
+  }, [contText]);
+
+
+console.log(contText.toLowerCase());
+  
   return <div>
-    <Sidebar />
+    <Sidebar ContentType1={ContentType1} setcontText={setcontText}/>
     <div className="p-4 ml-72 min-h-screen bg-gray-500">
       <CreateContentModal open={modalOpen} onClose={() => {
         setModalOpen(false);
@@ -51,15 +77,15 @@ export function Dashboard() {
 
       <div className="mt-16 ml-10">
       <div className="flex gap-4 flex-wrap">
-        {contents.map(({type, link, title}) => <Card 
+          { contents
+         .filter(({ type }) => type === contText.toLowerCase()) // Filter for YouTube types
+        .map(({type, link, title}) => <Card 
             type={type}
             link={link}
             title={title}
         />)}
       </div>
       </div>
-
-
     </div>
   </div>
 }

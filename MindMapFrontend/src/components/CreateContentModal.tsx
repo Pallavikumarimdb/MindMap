@@ -6,6 +6,7 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 
 enum ContentType {
+    General= "general",
     Youtube = "youtube",
     Twitter = "twitter"
 }
@@ -19,7 +20,16 @@ export function CreateContentModal({open, onClose}) {
 
     //@ts-ignore
     async  function extractYouTubeVideoID(link2) {
+
+        if (type === "twitter") {
+            const match = link2.match(/(?:https?:\/\/)?(?:www\.)?x\.com\/(.*?\/status\/\d+)/);
+            if (match) {
+                return (match[1]);
+            }
+        }
+
         // Regular expression to match YouTube video ID patterns
+        if (type === "twitter") {
         const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
         const match = await link2.match(regex);
         if (match && match[1]) {
@@ -27,15 +37,13 @@ export function CreateContentModal({open, onClose}) {
         } else {
           return null; 
         }
+    }
       }
-      
-
-      
 
     async function addContent() {
         const title = titleRef.current?.value;
         const linkTwit = linkRef.current?.value;
-        const link = title==="youtube" ? await extractYouTubeVideoID(link1) : linkTwit;
+        const link = title==="youtube" || "twitter" ? await extractYouTubeVideoID(link1) : linkTwit;
         await axios.post(`${BACKEND_URL}/api/v1/content`, {
             link,
             title,
@@ -49,6 +57,7 @@ export function CreateContentModal({open, onClose}) {
         onClose();
 
     }
+
 
     return <div>
         {open && <div> 
@@ -74,6 +83,9 @@ export function CreateContentModal({open, onClose}) {
                                 }}></Button>
                                 <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
                                     setType(ContentType.Twitter)
+                                }}></Button>
+                                <Button text="General" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
+                                    setType(ContentType.General)
                                 }}></Button>
                             </div>
                         </div>
