@@ -2,12 +2,23 @@ import { Signin } from "./pages/Signin"
 import { Signup } from "./pages/Signup"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Dashboard } from "./pages/Dashboard"
+import YouTubeTag from "./pages/YouTubeTag"
+import NoteBook from "./pages/NoteBook"
+import TwitterTag from "./pages/TwitterTag"
+import DashboardHome from "./pages/DashboardHome"
+
+
 function App() {
   return <BrowserRouter>
     <Routes>
       <Route path="/" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} >
+      <Route index element={<DashboardHome />} />
+      <Route path="notebook" element={<NoteBook />} />
+      <Route path="youtubetag" element={<YouTubeTag />} />
+      <Route path="twittertag" element={<TwitterTag />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
+import { Outlet } from "react-router-dom";
 import { Button } from "../components/Button"
 import Search from "../components/Search"
-import { Card } from "../components/Card"
 import { CreateContentModal } from "../components/CreateContentModal"
 import { PlusIcon } from "../assets/svg/PlusIcon"
 import { ShareIcon } from "../assets/svg/ShareIcon"
@@ -12,40 +12,21 @@ import axios from "axios"
 
 export function  Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
-  const {contents, refresh} = useContent();
+  const {refresh} = useContent();
 
   useEffect(() => {
     refresh();
   }, [modalOpen])
 
-  const ContentType1 = {
-    General:"General",
+  const ContentType = {
+    NoteBook:"NoteBook",
     Youtube:"Youtube",
     Twitter:"Twitter",
   }
 
-  const [contText, setcontText] = useState(() => {
-    // Fetch from localStorage or default to "General"
-    return localStorage.getItem("contText") || "General";
-  });
-
-    // Load the saved value from localStorage when the component mounts
-    useEffect(() => {
-      const savedValue = localStorage.getItem("contText");
-      if (savedValue) {
-        setcontText(savedValue); // Set the state to the saved value
-      }
-    }, []);
-
-  useEffect(() => {
-    localStorage.setItem("contText", contText);
-  }, [contText]);
-
-
-console.log(contText.toLowerCase());
   
   return <div>
-    <Sidebar ContentType1={ContentType1} setcontText={setcontText}/>
+    <Sidebar ContentType={ContentType} />
     <div className="p-4 ml-72 min-h-screen bg-gray-500">
       <CreateContentModal open={modalOpen} onClose={() => {
         setModalOpen(false);
@@ -75,17 +56,21 @@ console.log(contText.toLowerCase());
       </div>
       </div>
 
-      <div className="mt-16 ml-10">
+      <Outlet />
+
+      {/* <div className="mt-16 ml-10">
       <div className="flex gap-4 flex-wrap">
           { contents
-         .filter(({ type }) => type === contText.toLowerCase()) // Filter for YouTube types
-        .map(({type, link, title}) => <Card 
+        .filter(({ type }) => type ==="youtube") // Filter for YouTube types
+        .map(({type, link, title}) => 
+          <Card 
             type={type}
             link={link}
             title={title}
-        />)}
+        />
+        )}
       </div>
-      </div>
+      </div> */}
     </div>
   </div>
 }

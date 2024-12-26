@@ -11,7 +11,7 @@ interface ButtonProps {
 
 const variantClasses = {
     "primary": "bg-purple-600 text-white",
-    "secondary": "bg-purple-200 text-purple-600",
+    "secondary": "bg-black text-white",
 };
 
 const defaultStyles = "px-4 py-2 rounded-md font-light flex items-center";
