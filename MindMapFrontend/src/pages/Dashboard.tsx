@@ -22,30 +22,39 @@ export function Dashboard() {
     NoteBook: "NoteBook",
     Youtube: "Youtube",
     Twitter: "Twitter",
+    Dashboard: "Dashboard"
   }
 
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(window.innerWidth > 1100);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-};
+//   const toggleSidebar = () => {
+//     setIsOpen(!isOpen);
+// };
+
+useEffect(() => {
+  const handleResize = () => {
+    // Update state based on screen width
+    if (window.innerWidth > 1100) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  };
+
+  // Attach the resize event listener
+  window.addEventListener("resize", handleResize);
+
+  // Call it once to set initial state
+  handleResize();
+
+  // Cleanup the event listener on component unmount
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   return <div>
     <Sidebar ContentType={ContentType} isOpen={isOpen} setIsOpen={setIsOpen} />
-    <div className={`p-4 min-h-screen bg-gray-500 ${isOpen ? 'ml-72' : 'ml-0'}`}>
-      {!isOpen &&
-        <div>
-          <button onClick={toggleSidebar} className="w-10 ml-4 mt-3 item-center">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path d="M15 6L9 12L15 18" stroke="#797979" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </g>
-            </svg>
-          </button>
-        </div>}
+    <div className={`p-4 min-h-screen bg-gray-500 transition-all ease-in-out duration-700 ${isOpen ? 'ml-64' : 'ml-10'}`}>
       <CreateContentModal open={modalOpen} onClose={() => {
         setModalOpen(false);
       }} />
@@ -75,20 +84,6 @@ export function Dashboard() {
       </div>
 
       <Outlet />
-
-      {/* <div className="mt-16 ml-10">
-      <div className="flex gap-4 flex-wrap">
-          { contents
-        .filter(({ type }) => type ==="youtube") // Filter for YouTube types
-        .map(({type, link, title}) => 
-          <Card 
-            type={type}
-            link={link}
-            title={title}
-        />
-        )}
-      </div>
-      </div> */}
     </div>
   </div>
 }

@@ -10,16 +10,16 @@ interface ButtonProps {
 }
 
 const variantClasses = {
-    "primary": "bg-blue-600 text-white",
-    "secondary": "bg-black text-white",
+    "primary": "bg-blue-400 text-slate-300 md:text-base md:font-medium tracking-tight",
+    "secondary": "bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight",
 };
 
-const defaultStyles = "px-4 py-2 rounded-md font-light flex items-center";
+const defaultStyles = "px-2 py-1 rounded-md font-light flex items-center";
 
 
 export function Button({variant, text, startIcon, onClick, fullWidth, loading}: ButtonProps) {
     return <button onClick={onClick} className={variantClasses[variant] + " " + defaultStyles + `${fullWidth ? " w-full flex justify-center items-center" : ""} ${loading ? "opacity-45	" : ""}`} disabled={loading}>
-        <div className="pr-2">
+        <div className="hidden md:block pr-1">
             {startIcon}
         </div>
         {text}

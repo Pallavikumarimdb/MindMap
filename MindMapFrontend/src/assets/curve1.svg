@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+<g transform="matrix(1 0 0 1 540 540)" id="75ee0eb3-dd82-4fb5-a7e7-8f27695a2f3f"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="02f153f2-f312-469d-9de1-414fcbd0392e"  >
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="55ffcd16-626f-4392-a821-b2d7852ee089"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(250,250,250); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-81.17, -38.11)" d="M 0.333333 3 C 0.333333 1.52724 1.52724 0.333336 3 0.333336 C 4.47276 0.333336 5.66667 1.52724 5.66667 3 C 5.66667 4.47276 4.47276 5.66666 3 5.66666 C 1.52724 5.66666 0.333333 4.47276 0.333333 3 Z M 157 72.5 L 162 70.1132 L 162 75.8868 L 157 73.5 L 157 72.5 Z M 84.5606 38 C 84.5606 36.5272 85.7545 35.3333 87.2272 35.3333 C 88.7 35.3333 89.8939 36.5272 89.8939 38 C 89.8939 39.4728 88.7 40.6667 87.2272 40.6667 C 85.7545 40.6667 84.5606 39.4728 84.5606 38 Z M 3 2.5 L 52.2273 2.5 L 52.2273 3.5 L 3 3.5 L 3 2.5 Z M 122.227 72.5 L 157.5 72.5 L 157.5 73.5 L 122.227 73.5 L 122.227 72.5 Z M 87.7272 38 C 87.7272 57.0538 103.173 72.5 122.227 72.5 L 122.227 73.5 C 102.621 73.5 86.7272 57.6061 86.7272 38 L 87.7272 38 Z M 52.2273 2.5 C 71.8334 2.5 87.7272 18.3939 87.7272 38 L 86.7272 38 C 86.7272 18.9462 71.2811 3.5 52.2273 3.5 L 52.2273 2.5 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+</svg>
