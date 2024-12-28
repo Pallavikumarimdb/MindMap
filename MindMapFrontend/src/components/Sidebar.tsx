@@ -26,12 +26,12 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
 
     return (
         <div
-        className={`fixed top-0 left-0 h-full overflow-hidden bg-gray-950 text-white border-r border-stone-600 transition-all ease-in-out duration-700`}
+        className={`z-10 fixed top-0 left-0 h-full overflow-hidden bg-gray-950 text-white border-r border-stone-600 transition-all ease-in-out duration-700`}
         style={{
-          width: isOpen ? '16rem' : '3.9rem',
+          width: isOpen ? '14rem' : '3.9rem',
         }}
         >
-            <div className="flex justify-between  pr-2 mb-10">            {/* Toggle Button */}
+            <div className="flex pr-2 mb-10">            {/* Toggle Button */}
             <div className="pt-8 flex justify-end pl-3 pr-2">
                 <button
                     onClick={toggleSidebar}

@@ -54,13 +54,12 @@ useEffect(() => {
 
   return <div>
     <Sidebar ContentType={ContentType} isOpen={isOpen} setIsOpen={setIsOpen} />
-    <div className={`p-4 min-h-screen bg-gray-500 transition-all ease-in-out duration-700 ${isOpen ? 'ml-64' : 'ml-10'}`}>
+    <div className={`p-4 min-h-screen bg-slate-300 transition-all ease-in-out duration-700 ${isOpen ? 'ml-56' : 'ml-10'}`}>
       <CreateContentModal open={modalOpen} onClose={() => {
         setModalOpen(false);
       }} />
 
       <div className="flex justify-between mt-4" >
-
         <div className="flex ">
           <Search />
         </div>
@@ -68,7 +67,7 @@ useEffect(() => {
         <div className="flex  gap-4">
           <Button onClick={() => {
             setModalOpen(true)
-          }} variant="primary" text="Add content" startIcon={<PlusIcon size="lg" />}></Button>
+          }} variant="primary" text="Add Note" startIcon={<PlusIcon size="lg" />}></Button>
           <Button onClick={async () => {
             const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, {
               share: true
@@ -79,7 +78,7 @@ useEffect(() => {
             });
             const shareUrl = `http://localhost:5173/share/${response.data.hash}`;
             alert(shareUrl);
-          }} variant="secondary" text="Share brain" startIcon={<ShareIcon size="lg" />}></Button>
+          }} variant="secondary" text="Share Note" startIcon={<ShareIcon size="lg" />}></Button>
         </div>
       </div>
 

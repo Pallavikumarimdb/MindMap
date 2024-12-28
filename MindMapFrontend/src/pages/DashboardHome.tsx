@@ -1,27 +1,58 @@
-import React from 'react'
-// import imge from "../assets/home3.jpeg"
-// import imge1 from "../assets/home4.jpeg"
+
 import imge1 from "../assets/img1.png"
 import imge2 from "../assets/img4.png"
 import curve from "../assets/curve-2.svg"
 
 export default function DashboardHome() {
     return (
-        <div>
-            <div className="h-full overflow-hidden mt-16 ml-10 item-center justify-center">
-                <div className=" gap-4 text-white flex-wrap">
-                    <div className='animate-slidein300 text-center text-5xl md:text-7xl '>
-                        <h1>Welcome to the @Note</h1>
-                    </div>
-                    <div className=' flex justify-between'>
-                        <img className="animate-slidein500 md:pl-54 h-96 w-96 mb-28 mt-20" src={imge1} alt="Default Image" />
-                        <div className="animate-slidein700 hidden md:block ml-10 mt-[25%]">
-                            <img src={curve} width={522} height={182} alt="Curve 1" />
+        <div className="relative min-h-screen overflow-hidden">
+
+            <div className="opacity-35 max-w-screen overflow-hidden">
+            <div className="border-slate-400 absolute top-1/2 left-1/2 w-[65.875rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            <div className="border-slate-400 absolute top-1/2 left-1/2 w-[51.375rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            <div className="border-slate-400 absolute top-1/2 left-1/2 w-[36.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            <div className="border-slate-400 absolute top-1/2 left-1/2 w-[23.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            </div>
+
+
+            <div className="relative z-10 h-full overflow-hidden mt-16 ml-8 item-center justify-center">
+                <div className=" gap-4 text-gray-950 flex-wrap">
+                    <div className='  justify-between'>
+                        <img className="animate-slidein700 m-auto mt-20 h-56 w-56" src={imge2} alt="Default Image" />
+                        <div className='mt-4 animate-slidein300 text-center text-3xl md:text-3xl font-semibold'>
+                            <h1>Keep Track @Note</h1>
                         </div>
-                        <img className="animate-slidein700 hidden md:block mt-40 " src={imge2} alt="Default Image" />
+                        <div>
+                            <div className='flex mt-10 justify-center'>
+                                <button className="p-2 pl-4 flex pr-4 bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight rounded-md" onClick={() => {
+                                    // setModalOpen(true)
+                                }}>
+                                    <div className='mt-1 mr-1 w-4 '>
+                                        <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#cbd5e1" d="M8 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"></path> <path fill="#cbd5e1" d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"></path> </g></svg>
+                                    </div>
+                                    Go To Editor</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     )
 }
+
+
+{/* <div className="h-full overflow-hidden mt-16 ml-8 item-center justify-center">
+<div className=" gap-4 text-gray-950 flex-wrap">
+    <div className=' ml-36 flex justify-between'>
+        <img className="animate-slidein500 md:pl-54 h-72 w-72 ml-10 mb-28 mt-28 animate-slowspin " src={imge1} alt="Default Image" />
+        <div className="animate-slidein700 hidden md:block mt-[13%]">
+            <img src={curve} width={322} height={82} alt="Curve 1" />
+            <div className='mt-20 animate-slidein300 text-center text-3xl md:text-4xl font-bold'>
+                <h1>Get Started with @Note</h1>
+            </div>
+        </div>
+        <img className="animate-slidein700 hidden md:block mr-[25%] mt-40 h-56 w-56" src={imge2} alt="Default Image" />
+    </div>
+</div>
+</div> */}

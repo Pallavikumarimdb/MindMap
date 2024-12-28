@@ -38,6 +38,7 @@ export default {
         slidein500: "slidein 4s ease 500ms",
         slidein700: "slidein 4s ease 700ms",
         slidein900: "slidein 4s ease 900ms",
+        slowspin: "spin 60s linear infinite",
       },
     },
   },
