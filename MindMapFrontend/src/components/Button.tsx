@@ -11,8 +11,8 @@ interface ButtonProps {
 }
 
 const variantClasses = {
-    "primary": "bg-blue-400 text-slate-300 md:text-base md:font-medium tracking-tight",
-    "secondary": "bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight",
+    "primary": "bg-gray-600 text-slate-300 md:text-base md:font-medium tracking-tight px-4 py-2",
+    "secondary": "bg-slate-300 text-grey-950 md:text-base md:font-bold tracking-tight",
 };
 
 const defaultStyles = "px-2 py-1 rounded-md font-light flex items-center";

@@ -14,6 +14,8 @@ export default {
         },
         gray: {
           500: "#0c0b10",
+          600: "#202020",
+          700: "#191919"
         },
         blue:{
           500: "#401ad8",
@@ -39,6 +41,17 @@ export default {
         slidein700: "slidein 4s ease 700ms",
         slidein900: "slidein 4s ease 900ms",
         slowspin: "spin 60s linear infinite",
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"], // Add 'Inter' as the default sans-serif font
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            "h1": { fontSize: "4.25rem", fontWeight: "700" }, // 36px
+            "h2": { fontSize: "3.875rem", fontWeight: "600" }, // 30px
+          },
+        },
       },
     },
   },

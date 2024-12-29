@@ -1,5 +1,6 @@
 import { useContent } from "../hooks/useContent"
 import { Card } from "../components/Card"
+import MainEditPage from "./Editor";
 
 
 export default function NoteBook() {
@@ -8,7 +9,7 @@ export default function NoteBook() {
 
     return (
         <div>
-            <div className="mt-16 ml-10">
+            <div className=" mt-14">
                 <div className="flex gap-4 flex-wrap">
                     {contents
                         .filter(({ type }) => type === "general") // Filter for YouTube types
@@ -19,6 +20,9 @@ export default function NoteBook() {
                                 title={title}
                             />
                         )}
+                        <div className="mt-6 min-w-full ">
+                        <MainEditPage/>
+                        </div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,10 @@
 export function YoutubeIcon() {
     //@ts-ignore
     return (
-        <div className='w-8'>
-            <svg viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+        <div className='w-6'>
+            <svg viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" 
+            //@ts-ignore
+            xlink="http://www.w3.org/1999/xlink" fill="#000000">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier"> <title>Youtube-color</title> <desc>Created with Sketch.</desc> <defs> </defs> 
             <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> 

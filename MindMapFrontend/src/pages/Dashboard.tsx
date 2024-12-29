@@ -54,7 +54,7 @@ useEffect(() => {
 
   return <div>
     <Sidebar ContentType={ContentType} isOpen={isOpen} setIsOpen={setIsOpen} />
-    <div className={`p-4 min-h-screen bg-slate-300 transition-all ease-in-out duration-700 ${isOpen ? 'ml-56' : 'ml-10'}`}>
+    <div className={`p-4 min-h-screen bg-gray-700 transition-all ease-in-out duration-700 ${isOpen ? 'ml-56' : 'ml-10'}`}>
       <CreateContentModal open={modalOpen} onClose={() => {
         setModalOpen(false);
       }} />
@@ -82,7 +82,7 @@ useEffect(() => {
         </div>
       </div>
 
-      <Outlet />
+      <Outlet/>
     </div>
   </div>
 }
