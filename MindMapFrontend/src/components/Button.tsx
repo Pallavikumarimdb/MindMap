@@ -15,7 +15,7 @@ const variantClasses = {
     "secondary": "bg-slate-300 text-grey-950 md:text-base md:font-bold tracking-tight",
 };
 
-const defaultStyles = "px-2 py-1 rounded-md font-light flex items-center";
+const defaultStyles = "p-4 pl-4 pr-4 rounded-md font-light flex items-center";
 
 
 export function Button({variant, text, startIcon, onClick, fullWidth, loading}: ButtonProps) {

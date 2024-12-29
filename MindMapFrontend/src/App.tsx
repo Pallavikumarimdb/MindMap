@@ -6,12 +6,12 @@ import YouTubeTag from "./pages/YouTubeTag"
 import NoteBook from "./pages/NoteBook"
 import TwitterTag from "./pages/TwitterTag"
 import DashboardHome from "./pages/DashboardHome"
-
+import Home from "./Landing/Home"
 
 function App() {
   return <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Signup />} />
+      <Route path="/" element={<Home />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/dashboard" element={<Dashboard />} >
       <Route index element={<DashboardHome />} />
