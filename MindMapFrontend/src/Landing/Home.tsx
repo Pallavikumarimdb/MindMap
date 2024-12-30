@@ -19,9 +19,9 @@ export default function Home() {
                 </div>
                 <div className='mt-8 mr-10 '>
                     <Link to="/dashboard/notebook/" className="animate-slidein300">
-                        <button className="p-2 pl-4 flex pr-4 font-bold bg-slate-300 text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
+                        <button className=" flex font-bold bg-slate-300 text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
                         }}>
-                            <span className='font-extrabold'>Join Now</span>
+                            <span className='p-3 pl-4 font-extrabold'>Join Now</span>
                         </button>
                     </Link>
                 </div>
