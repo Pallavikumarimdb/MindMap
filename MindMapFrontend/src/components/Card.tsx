@@ -21,7 +21,7 @@ export function Card({ title, link, type }: CardProps) {
       document.body.appendChild(script);
 
       script.onload = () => {
-        // Twitter script loaded, initialize the widget
+        // Twitter script loaded here...... initialize the widget
         if (twitterEmbedRef.current) {
           (window as any).twttr.widgets.load(twitterEmbedRef.current);
         }
@@ -29,7 +29,7 @@ export function Card({ title, link, type }: CardProps) {
 
       scriptAdded.current = true;
 
-      // Cleanup the script only when the component unmounts or `type` changes
+      // Cleanup the script only when the component unmounts or type of cont.. changes changes
       return () => {
         if (script && document.body.contains(script)) {
           document.body.removeChild(script);
@@ -38,12 +38,12 @@ export function Card({ title, link, type }: CardProps) {
       };
     }
 
-  }, [type]); // Dependency array makes sure the effect runs on `type` change
+  }, [type]); //effect runs on type ... change
 
 
 
   return <div>
-    <div className="p-2 overflow-hidden  rounded-md border-gray-200 bg-gray-950 text-white border min-h-48 w-72">
+    <div className="p-2 overflow-hidden  rounded-md border-gray-200 bg-gray-600 text-white border min-h-48 w-72">
       <div className="flex justify-between">
         <div className="flex items-center text-md">
           <div className="text-gray-500 pr-2">

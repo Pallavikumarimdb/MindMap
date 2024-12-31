@@ -2,7 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import cors from "cors";
 import { JWT_SECRET } from "./config";
-import { UserModel, ContentModel, LinkModel } from "./db/db";
+import { UserModel, ContentModel, LinkModel, Note } from "./db/db";
 import {authMiddleware} from "./middleware/middleware"
 import { random } from "./utils";
 const app=express();
@@ -188,6 +188,82 @@ app.get("/api/v1/brain/:shareLink", async(req, res)=>{
 })
 
 
+//@ts-ignore
+app.post("/api/v1/notes", authMiddleware, async(req, res) => {
+    const { name, content } = req.body;
+    //@ts-ignore
+    const userId = req.userId;
+
+    if (!name || !content) {
+        return res.status(400).json({ message: 'Name and content are required.' });
+      }
+
+    try {
+        const newNote=new Note({
+            userId,
+            name,
+            content,
+
+        })
+
+        await newNote.save();
+        res.status(201).json({message: 'Note saved successfully', note: newNote})
+        
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to save note', error });
+    }
+})
+
+
+app.get("/api/v1/notes", authMiddleware, async(req, res)=>{
+    //@ts-ignore
+    const userId=req.userId;
+
+    try {
+        const notes=await Note.find({userId});
+        res.status(200).json(notes);
+    } catch (error) {
+        res.status(500).json({message: 'Failed to retrieve notes', error })
+    }
+})
+
+//@ts-ignore
+app.delete('/api/v1/notes/:id', async (req, res) => {
+    const noteId = req.params.id;
+    try {
+      const deletedNote = await Note.findByIdAndDelete(noteId);
+      if (!deletedNote) {
+        return res.status(404).send({ message: 'Note not found' });
+      }
+      res.status(200).send({ message: 'Note deleted successfully' });
+    } catch (error) {
+      res.status(500).send({ message: 'Internal server error', error });
+    }
+  });
+  
+
+//@ts-ignore
+app.put('/api/v1/notes/:id', authMiddleware, async (req, res) => {
+    const { id } = req.params;
+    const { content } = req.body;
+  
+    try {
+      const updatedNote = await Note.findByIdAndUpdate(
+        id,
+        { content },
+        { new: true } // Returns the updated document
+      );
+  
+      if (!updatedNote) {
+        return res.status(404).json({ message: 'Note not found' });
+      }
+  
+      res.status(200).json(updatedNote);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error });
+    }
+  });
+  
 
 
 

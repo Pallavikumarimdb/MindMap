@@ -5,9 +5,11 @@ import TwitterIcon from "../assets/svg/TwitterIcon";
 import { YoutubeIcon } from "../assets/svg/YoutubeIcon";
 import { SidebarItem } from "./SidebarItem";
 import { Link } from "react-router-dom";
+import NoteIcon from "../assets/svg/NoteIcon";
 
 interface ContentType {
     NoteBook: string;
+    SortNote: string;
     Youtube: string;
     Twitter: string;
     Dashboard: string;
@@ -116,6 +118,12 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
                     <SidebarItem
                         text={isOpen ? ContentType.NoteBook : ""}
                         icon={<Copy />}
+                    />
+                </Link>
+                <Link to="/dashboard/notepage" className="animate-slidein900">
+                    <SidebarItem
+                        text={isOpen ? ContentType.SortNote : ""}
+                        icon={<NoteIcon />}
                     />
                 </Link>
                 <Link to="/dashboard/youtubetag" className="animate-slidein700">

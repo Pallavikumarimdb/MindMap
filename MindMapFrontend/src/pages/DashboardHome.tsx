@@ -2,9 +2,12 @@
 import imge2 from "../assets/img4.png"
 import { Link } from "react-router-dom";
 
+
 export default function DashboardHome() {
+
+    
     return (
-        <div className="relative bg-gray-700 min-h-screen overflow-hidden">
+        <div className="relative  min-h-screen overflow-hidden">
 
             <div className="opacity-35 max-w-screen overflow-hidden">
             <div className="border-slate-700 absolute top-1/2 left-1/2 w-[65.875rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
@@ -14,7 +17,7 @@ export default function DashboardHome() {
             </div>
 
 
-            <div className="relative z-10 h-full overflow-hidden mt-16 ml-8 item-center justify-center">
+            <div className="relative h-full overflow-hidden mt-16 ml-8 item-center justify-center">
                 <div className=" gap-4 text-gray-950 flex-wrap">
                     <div className='  justify-between'>
                         <img className="animate-slidein700 m-auto mt-20 h-56 w-56" src={imge2} alt="Default Image" />
@@ -24,7 +27,7 @@ export default function DashboardHome() {
                         <div>
                             <div className='flex mt-10 justify-center'>
                             <Link to="/dashboard/notebook/" className="animate-slidein300">
-                                <button  className="p-2 pl-4 flex pr-4 bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight rounded-md" onClick={() => {
+                                <button  className="p-2 pt-3 pl-4 h-12 flex pr-4  bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight rounded-md" onClick={() => {
                                     // setModalOpen(true)
                                 }}>
                                     <div className='mt-1 mr-1 w-4 '>

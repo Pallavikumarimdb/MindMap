@@ -22,14 +22,16 @@ export function CreateContentModal({open, onClose}) {
     async  function extractYouTubeVideoID(link2) {
 
         if (type === "twitter") {
+             // Regular expression to match twitter post ID patterns
             const match = link2.match(/(?:https?:\/\/)?(?:www\.)?x\.com\/(.*?\/status\/\d+)/);
             if (match) {
                 return (match[1]);
             }
         }
 
-        // Regular expression to match YouTube video ID patterns
+        
         if (type === "twitter") {
+        // Regular expression to match YouTube video ID patterns
         const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
         const match = await link2.match(regex);
         if (match && match[1]) {
@@ -60,25 +62,26 @@ export function CreateContentModal({open, onClose}) {
 
 
     return <div>
-        {open && <div> 
+        {open && 
+            <div> 
             <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex justify-center">
             </div>
-            <div className="w-screen h-screen fixed top-0 left-0 flex justify-center">
+            <div className="z-10 w-screen h-screen fixed top-0 left-0 flex justify-center p-10">
                 <div className="flex flex-col justify-center">
-                    <span className="bg-white opacity-100 p-4 rounded fixed">
+                    <span className="bg-white opacity-100 p-6 px-10 rounded fixed">
                         <div className="flex justify-end">
-                            <div onClick={onClose} className="cursor-pointer w-5">
+                            <div onClick={onClose} className="cursor-pointer w-6 mb-4">
                                 <CrossIcon />
                             </div>
                         </div>
-                        <div>
-                            <Input reference={titleRef} placeholder={"Title"} />
-                            <Input reference={linkRef} placeholder={"Link"} />
+                        <div className="px-8">
+                            <Input reference={titleRef} placeholder={"Enter Title of Link"} />
+                            <Input reference={linkRef} placeholder={"Enter Favourite Link"} />
                         </div>
                         <div>
                             <h1>Type</h1>
                             <div className="flex gap-1 justify-center pb-2">
-                                <Button text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
+                                <Button className="h-10 w-32 px-6 py-2" text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
                                     setType(ContentType.Youtube)
                                 }}></Button>
                                 <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {

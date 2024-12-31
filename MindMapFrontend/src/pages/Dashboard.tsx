@@ -19,7 +19,8 @@ export function Dashboard() {
   }, [modalOpen])
 
   const ContentType = {
-    NoteBook: "NoteBook",
+    NoteBook: "Text Editor",
+    SortNote: "Notes",
     Youtube: "Youtube",
     Twitter: "Twitter",
     Dashboard: "Dashboard"
@@ -65,7 +66,7 @@ useEffect(() => {
         </div>
 
         <div className="flex  gap-4">
-          <Button onClick={() => {
+          <Button className="h-10" onClick={() => {
             setModalOpen(true)
           }} variant="primary" text="Add Note" startIcon={<PlusIcon size="lg" />}></Button>
           <Button onClick={async () => {

@@ -6,6 +6,7 @@ import YouTubeTag from "./pages/YouTubeTag"
 import NoteBook from "./pages/NoteBook"
 import TwitterTag from "./pages/TwitterTag"
 import DashboardHome from "./pages/DashboardHome"
+import NotesPage from "./pages/NotesPage"
 import Home from "./Landing/Home"
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="notebook" element={<NoteBook />} />
       <Route path="youtubetag" element={<YouTubeTag />} />
       <Route path="twittertag" element={<TwitterTag />} />
+      <Route path="notepage" element={<NotesPage />} />
       </Route>
     </Routes>
   </BrowserRouter>

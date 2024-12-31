@@ -11,7 +11,7 @@ export default function NoteBook() {
         <div>
             <div className=" mt-6">
                 <div className="flex gap-4 flex-wrap">
-                    {contents
+                    {/* {contents
                         .filter(({ type }) => type === "general") // Filter for YouTube types
                         .map(({ type, link, title }) =>
                             <Card
@@ -19,7 +19,7 @@ export default function NoteBook() {
                                 link={link}
                                 title={title}
                             />
-                        )}
+                        )} */}
                         <div className="mt-6 min-w-full ">
                         {/* <MainEditPage/> */}
                         <MyEditor/>
