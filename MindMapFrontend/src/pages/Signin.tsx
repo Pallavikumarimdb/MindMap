@@ -3,9 +3,15 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import img1 from "../assets/img3.png"
 
-export function Signin() {
+
+interface SignInProps {
+    onSignIn: () => void; // Callback to update authentication state
+  }
+
+export const Signin: React.FC<SignInProps> = ({ onSignIn }) => {
     const usernameRef = useRef<HTMLInputElement>();
     const passwordRef = useRef<HTMLInputElement>();
     const navigate = useNavigate();
@@ -14,21 +20,35 @@ export function Signin() {
         const username = usernameRef.current?.value;
         console.log(usernameRef.current)
         const password = passwordRef.current?.value;
-        const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
-            username,
-            password
-        })
-        const jwt = response.data.token;
-        localStorage.setItem("token", jwt);
-        navigate("/dashboard")
+        try {
+            const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
+                username,
+                password
+            })
+            const token = response.data.token;
+             if (token) {
+        localStorage.setItem("token", token); 
+        onSignIn();
+        navigate("/dashboard"); 
+      }
+    } catch (error) {
+      console.error("Sign-in failed:", error);
     }
-    return <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
-        <div className="bg-white rounded-xl border min-w-48 p-8">
+    }
+    return <div className="h-screen w-screen bg-gray-200 flex justify-between px-[15%] items-center">
+        <div className=" text-center rounded-xl border min-w-48 p-8">
+            <h1 className="text-2xl mb-10 font-bold text-gray-700">Sign In</h1>
             <Input reference={usernameRef} placeholder="Username" />
             <Input reference={passwordRef} placeholder="Password" />
-            <div className="flex justify-center pt-4">
-                <Button onClick={signin} loading={false} variant="primary" text="Signin" fullWidth={true} />
+            <div className=" justify-center pt-6">
+                <Button onClick={signin} loading={false} variant="primary" text="Sign In" fullWidth={true} />
+                    <Link to="/signup/" className="">
+                    <div className="mt-6"><a className="underline underline-offset-1 mt-10 text-blue-900" href="/signup">Sign Up</a></div>
+                    </Link>
             </div>
+        </div>
+        <div>
+            <img src={img1} alt="" />
         </div>
     </div>
 }

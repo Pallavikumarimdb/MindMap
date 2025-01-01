@@ -30,22 +30,26 @@ export function CreateContentModal({open, onClose}) {
         }
 
         
-        if (type === "twitter") {
+        if (type === "youtube") {
         // Regular expression to match YouTube video ID patterns
-        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
-        const match = await link2.match(regex);
-        if (match && match[1]) {
-          return match[1];
-        } else {
-          return null; 
-        }
+        // const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
+        // const match = await link2.match(regex);
+        // if (match && match[1]) {
+        //   return match[1];
+        // } else {
+        //   return null; 
+        // }
+        return linkRef.current?.value;
     }
       }
+
+
 
     async function addContent() {
         const title = titleRef.current?.value;
         const linkTwit = linkRef.current?.value;
         const link = title==="youtube" || "twitter" ? await extractYouTubeVideoID(link1) : linkTwit;
+        console.log("kkkkk  "+link)
         await axios.post(`${BACKEND_URL}/api/v1/content`, {
             link,
             title,
@@ -64,10 +68,10 @@ export function CreateContentModal({open, onClose}) {
     return <div>
         {open && 
             <div> 
-            <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex justify-center">
+            <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex ">
             </div>
-            <div className="z-10 w-screen h-screen fixed top-0 left-0 flex justify-center p-10">
-                <div className="flex flex-col justify-center">
+            <div className="z-10 w-screen h-screen fixed top-0 left-0 flex p-10 ml-[30%] mt-[10%]">
+                <div className="flex flex-col ">
                     <span className="bg-white opacity-100 p-6 px-10 rounded fixed">
                         <div className="flex justify-end">
                             <div onClick={onClose} className="cursor-pointer w-6 mb-4">
@@ -79,16 +83,12 @@ export function CreateContentModal({open, onClose}) {
                             <Input reference={linkRef} placeholder={"Enter Favourite Link"} />
                         </div>
                         <div>
-                            <h1>Type</h1>
-                            <div className="flex gap-1 justify-center pb-2">
+                            <div className="mt-4 flex gap-1 justify-center pb-2">
                                 <Button className="h-10 w-32 px-6 py-2" text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
                                     setType(ContentType.Youtube)
                                 }}></Button>
-                                <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
+                                <Button className="h-10 w-32 px-6 py-2 ml-10 gap-4" text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
                                     setType(ContentType.Twitter)
-                                }}></Button>
-                                <Button text="General" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
-                                    setType(ContentType.General)
                                 }}></Button>
                             </div>
                         </div>

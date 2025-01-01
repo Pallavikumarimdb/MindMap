@@ -63,7 +63,7 @@ export default function MyEditor() {
         />
         <button
           onClick={saveNote}
-          className="ml-1 font-bold bg-blue-500 w-[8%] h-11 border rounded bg-gray-700 shadow-inner bg-slate-300 text-gray-950 shadow-slate-300 hover:bg-blue-600"
+          className="ml-1 font-bold bg-blue-500 px-2 h-11 border rounded bg-gray-700 shadow-inner bg-slate-300 text-gray-950 shadow-slate-300 hover:bg-blue-600"
         >
           Save Note
         </button>

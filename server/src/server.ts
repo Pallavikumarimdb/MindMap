@@ -56,6 +56,24 @@ app.post("/api/v1/signin", async(req, res)=>{
     }
 })
 
+//@ts-ignore
+app.get("/api/auth/verify-token", (req, res) => {
+    const token = req.headers.authorization;
+  
+    if (!token) {
+      return res.status(401).send("Token missing");
+    }
+  
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET); 
+      res.status(200).send({ message: "Token is valid" });
+    } catch (error) {
+      res.status(401).send({ message: "Invalid token" });
+    }
+  });
+  
+  
+
 app.post("/api/v1/content", authMiddleware, async (req, res)=>{
     const link=req.body.link;
     const type=req.body.type;
@@ -88,20 +106,34 @@ app.get("/api/v1/content", authMiddleware, async (req, res)=>{
     })
 })
 
-app.delete("/api/v1/content", authMiddleware, async(req, res)=>{
-    const contentId=req.body.contentId;
-
-    await ContentModel.deleteMany({
-        contentId,
+//@ts-ignore
+app.delete("/api/v1/content", authMiddleware, async (req, res) => {
+    const contentId = req.body.contentId;
+  
+    if (!contentId) {
+      return res.status(400).json({ message: "Content ID is required" });
+    }
+  
+    try {
+      const result = await ContentModel.deleteOne({
+        _id: contentId, 
         //@ts-ignore
-        userId:req.userId
-    })
-
-    res.json({
-        message: "Content Deleted"
-    })
-})
-
+        userId: req.userId, 
+      });
+  
+      if (result.deletedCount === 0) {
+        return res.status(404).json({ message: "Content not found or not authorized" });
+      }
+  
+      res.json({
+        message: "Content deleted successfully",
+      });
+    } catch (error) {
+      console.error("Error deleting content:", error);
+      res.status(500).json({ message: "An error occurred while deleting the content" });
+    }
+  });
+  
 
 // TO DO: Implement delete account/user's all data
 

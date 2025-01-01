@@ -18,7 +18,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className='mt-8 mr-10 '>
-                    <Link to="/dashboard/notebook/" className="animate-slidein300">
+                    <Link to="/dashboard" className="animate-slidein300">
                         <button className=" flex font-bold bg-slate-300 text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
                         }}>
                             <span className='p-3 pl-4 font-extrabold'>Join Now</span>
@@ -37,7 +37,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className='flex mt-[50px] text-slate-300 justify-center'>
-                    <Link to="/dashboard/notebook/" className="animate-slidein300">
+                    <Link to="/dashboard/" className="animate-slidein300">
                         <button className="p-3 pl-6 flex pr-6 bg-gray-950 text-slate-300 font-bold   tracking-tight rounded-md" onClick={() => {
                         }}>
                             <div className=' mr-2 w-6 '>

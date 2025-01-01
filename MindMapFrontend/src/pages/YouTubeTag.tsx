@@ -2,19 +2,24 @@ import { useContent } from "../hooks/useContent"
 import { Card } from "../components/Card"
 
 export default function YouTubeTag() {
-    const {contents} = useContent();
+    const { contents, deleteContent } = useContent();
+    //@ts-ignore
+
 
     return (
         <div>
             <div className="mt-16 ml-10">
                 <div className="flex gap-4 flex-wrap">
                     {contents
-                        .filter(({ type }) => type === "youtube") // Filter for YouTube types
-                        .map(({ type, link, title }) =>
+                        .filter(({ type }) => type === "youtube") 
+                        .map(({type, link, title, _id  }) =>
                             <Card
-                                type={type}
-                                link={link}
-                                title={title}
+                        key={_id}
+                        type={type}
+                        link={link}
+                        title={title}
+                        contentId={_id}
+                        onDelete={deleteContent}
                             />
                         )}
                 </div>

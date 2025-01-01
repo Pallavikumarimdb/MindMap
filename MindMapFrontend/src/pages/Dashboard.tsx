@@ -7,16 +7,23 @@ import { PlusIcon } from "../assets/svg/PlusIcon"
 import { ShareIcon } from "../assets/svg/ShareIcon"
 import { Sidebar } from "../components/Sidebar"
 import { useContent } from "../hooks/useContent"
-import { BACKEND_URL } from "../config"
-import axios from "axios"
+import ShareNote from "./ShareNote";
 
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [shareOpen, setshareOpen] = useState(false);
   const { refresh } = useContent();
 
   useEffect(() => {
     refresh();
   }, [modalOpen])
+
+  useEffect(() => {
+    refresh();
+  }, [shareOpen])
+
+
+  console.log(shareOpen);
 
   const ContentType = {
     NoteBook: "Text Editor",
@@ -60,6 +67,12 @@ useEffect(() => {
         setModalOpen(false);
       }} />
 
+      <ShareNote
+      open1={shareOpen} onClose1={() => {
+        setshareOpen(false);
+      }}
+      />
+
       <div className="flex justify-between mt-4" >
         <div className="flex ">
           <Search />
@@ -69,16 +82,8 @@ useEffect(() => {
           <Button className="h-10" onClick={() => {
             setModalOpen(true)
           }} variant="primary" text="Add Note" startIcon={<PlusIcon size="lg" />}></Button>
-          <Button onClick={async () => {
-            const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, {
-              share: true
-            }, {
-              headers: {
-                "Authorization": localStorage.getItem("token")
-              }
-            });
-            const shareUrl = `http://localhost:5173/share/${response.data.hash}`;
-            alert(shareUrl);
+          <Button onClick={ () => {
+            setshareOpen(true)
           }} variant="secondary" text="Share Note" startIcon={<ShareIcon size="lg" />}></Button>
         </div>
       </div>
