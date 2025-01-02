@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
-import logo2 from "../assets/logo1.webp";
 import Copy from "../assets/svg/Copy";
 import TwitterIcon from "../assets/svg/TwitterIcon";
 import { YoutubeIcon } from "../assets/svg/YoutubeIcon";
 import { SidebarItem } from "./SidebarItem";
 import { Link } from "react-router-dom";
 import NoteIcon from "../assets/svg/NoteIcon";
+import GeneralLink from "../assets/svg/GeneralLink";
 
 interface ContentType {
     NoteBook: string;
@@ -13,6 +13,7 @@ interface ContentType {
     Youtube: string;
     Twitter: string;
     Dashboard: string;
+    General: string;
 }
 
 interface SidebarProps {
@@ -124,6 +125,12 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
                     <SidebarItem
                         text={isOpen ? ContentType.SortNote : ""}
                         icon={<NoteIcon />}
+                    />
+                </Link>
+                <Link to="/dashboard/general" className="animate-slidein900">
+                    <SidebarItem
+                        text={isOpen ? ContentType.General: ""}
+                        icon={<GeneralLink />}
                     />
                 </Link>
                 <Link to="/dashboard/youtubetag" className="animate-slidein700">

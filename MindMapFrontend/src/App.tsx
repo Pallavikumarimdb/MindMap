@@ -5,9 +5,11 @@ import { Dashboard } from "./pages/Dashboard"
 import YouTubeTag from "./pages/YouTubeTag"
 import NoteBook from "./pages/NoteBook"
 import TwitterTag from "./pages/TwitterTag"
+import GeneralTag from "./pages/GeneralTag"
 import DashboardHome from "./pages/DashboardHome"
 import NotesPage from "./pages/NotesPage"
 import Home from "./Landing/Home"
+
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -61,6 +63,7 @@ function App() {
       <Route path="youtubetag" element={<YouTubeTag />} />
       <Route path="twittertag" element={<TwitterTag />} />
       <Route path="notepage" element={<NotesPage />} />
+      <Route path="general" element={<GeneralTag />}/>
       </Route>
     </Routes>
   </BrowserRouter>

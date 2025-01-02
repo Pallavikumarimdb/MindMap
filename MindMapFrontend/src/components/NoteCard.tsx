@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Editor } from "novel";
 import axios from "axios";
 
@@ -43,8 +43,8 @@ export function NoteCard({ note, onDelete }: NoteCardProps) {
 
   return (
     <div className="">
-      <button onClick={expandedCard} className="card cursor-pointer transition-all  duration-300 hover:-translate-y-1 rounded-xl p-4 justify-between md:items-center">
-        <div className="bg-gray-600 text-slate-300 card-content p-2 rounded-xl  pl-4 pr-4">
+      <button onClick={expandedCard} className="card  cursor-pointer transition-all  duration-300 hover:-translate-y-1 rounded-xl p-4 justify-between md:items-center">
+        <div className="border border-gray-200 bg-gray-600 text-slate-300 card-content p-2 rounded-xl  pl-4 pr-4">
           <div className="flex flex-col items-center">
             <div   className="flex justify-between w-full mt-4 ">
               <div className=" mr-10 text-3xl font-semibold"><h1>{note.name}</h1></div>

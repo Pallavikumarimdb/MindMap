@@ -30,7 +30,8 @@ export function Dashboard() {
     SortNote: "Notes",
     Youtube: "Youtube",
     Twitter: "Twitter",
-    Dashboard: "Dashboard"
+    Dashboard: "Dashboard",
+    General: "General"
   }
 
 

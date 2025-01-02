@@ -30,7 +30,7 @@ export function CreateContentModal({open, onClose}) {
         }
 
         
-        if (type === "youtube") {
+        if (type === "youtube" || "general") {
         // Regular expression to match YouTube video ID patterns
         // const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
         // const match = await link2.match(regex);
@@ -83,16 +83,19 @@ export function CreateContentModal({open, onClose}) {
                             <Input reference={linkRef} placeholder={"Enter Favourite Link"} />
                         </div>
                         <div>
-                            <div className="mt-4 flex gap-1 justify-center pb-2">
-                                <Button className="h-10 w-32 px-6 py-2" text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
+                            <div className="mt-4 flex  gap-1 justify-center pb-2">
+                                <button className=" bg-purple-300 text-purple-600 px-2 "  onClick={() => {
                                     setType(ContentType.Youtube)
-                                }}></Button>
-                                <Button className="h-10 w-32 px-6 py-2 ml-10 gap-4" text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
+                                }}>#Youtube</button>
+                                <button className="bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
                                     setType(ContentType.Twitter)
-                                }}></Button>
+                                }}>#Twitter</button>
+                                <button className="bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
+                                    setType(ContentType.General)
+                                }}>#General</button>
                             </div>
                         </div>
-                        <div className="flex justify-center">
+                        <div className="mt-6 flex justify-center">
                             <Button onClick={addContent} variant="primary" text="Submit" />
                         </div>
                     </span>
