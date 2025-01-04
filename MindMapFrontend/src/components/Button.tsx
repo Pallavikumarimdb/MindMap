@@ -18,7 +18,7 @@ const variantClasses = {
 const defaultStyles = "pt-1 pb-1 pl-2 pr-2 h-10 rounded-md font-light flex items-center";
 
 
-export function Button({className, variant, text, startIcon, onClick, fullWidth, loading}: ButtonProps) {
+export function Button({ variant, text, startIcon, onClick, fullWidth, loading}: ButtonProps) {
     return <button onClick={onClick} className={variantClasses[variant] + " " + defaultStyles + `${fullWidth ? " w-full flex justify-center items-center" : ""} ${loading ? "opacity-45	" : ""}`} disabled={loading}>
         <div className="hidden md:block pr-1">
             {startIcon}
