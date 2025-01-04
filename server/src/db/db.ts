@@ -1,6 +1,13 @@
-import { JWT_SECRET, Mongo_DB } from "../config";
+import 'dotenv/config'
 import mongoose, {model, Schema} from "mongoose";
-mongoose.connect(Mongo_DB);
+
+const mongoDB = process.env.Mongo_DB;
+
+if (!mongoDB) {
+  throw new Error('Mongo_DB environment variable is not set');
+}
+
+mongoose.connect(mongoDB);
 
 
 const UserSchema=new Schema({

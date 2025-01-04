@@ -1,7 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import cors from "cors";
-import { JWT_SECRET } from "./config";
+import 'dotenv/config'
 import { UserModel, ContentModel, LinkModel, Note } from "./db/db";
 import {authMiddleware} from "./middleware/middleware"
 import { random } from "./utils";
@@ -40,10 +40,14 @@ app.post("/api/v1/signin", async(req, res)=>{
         password
     })
 
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT_SECRET environment variable is not set');
+      }
+
     if(UserExist){
         const token=jwt.sign({
             id: UserExist._id, 
-        },JWT_SECRET);
+        },process.env.JWT_SECRET);
 
         res.json({
             token:token
@@ -63,9 +67,13 @@ app.get("/api/auth/verify-token", (req, res) => {
     if (!token) {
       return res.status(401).send("Token missing");
     }
+
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT_SECRET environment variable is not set');
+      }
   
     try {
-      const decoded = jwt.verify(token, JWT_SECRET); 
+      const decoded = jwt.verify(token, process.env.JWT_SECRET); 
       res.status(200).send({ message: "Token is valid" });
     } catch (error) {
       res.status(401).send({ message: "Invalid token" });
