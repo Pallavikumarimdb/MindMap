@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
-import 'dotenv/config'
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/img3.png"
@@ -21,7 +21,7 @@ export const Signin: React.FC<SignInProps> = ({ onSignIn }) => {
         console.log(usernameRef.current)
         const password = passwordRef.current?.value;
         try {
-            const response = await axios.post(process.env.BACKEND_URL + "/api/v1/signin", {
+            const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
                 username,
                 password
             })

@@ -2,7 +2,7 @@ import { Editor } from "novel";
 import { useState } from "react";
 import { defaultValue } from "./DefaultEdit";
 import axios from "axios";
-import 'dotenv/config'
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 export default function MyEditor() {
   const [content, setContent] = useState(() => {
@@ -32,7 +32,7 @@ export default function MyEditor() {
       //@ts-ignore
       const content = await  JSON.parse(localStorage.getItem("novel__content"));
       const response = await axios.post(
-        `${process.env.BACKEND_URL}/api/v1/notes`,
+        `${BACKEND_URL}/api/v1/notes`,
         { name: noteName, content },
         {
           headers: {

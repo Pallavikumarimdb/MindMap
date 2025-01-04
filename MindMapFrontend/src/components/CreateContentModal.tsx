@@ -3,7 +3,8 @@ import CrossIcon from "../assets/svg/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import axios from "axios";
-import 'dotenv/config'
+
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 enum ContentType {
     General= "general",
@@ -50,7 +51,7 @@ export function CreateContentModal({open, onClose}) {
         const linkTwit = linkRef.current?.value;
         const link = title==="youtube" || "twitter" ? await extractYouTubeVideoID(link1) : linkTwit;
         console.log("kkkkk  "+link)
-        await axios.post(`${process.env.BACKEND_URL}/api/v1/content`, {
+        await axios.post(`${BACKEND_URL}/api/v1/content`, {
             link,
             title,
             type
