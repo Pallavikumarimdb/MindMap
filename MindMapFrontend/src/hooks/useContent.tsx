@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BACKEND_URL } from "../config";
+import 'dotenv/config'
 
 export function useContent() {
   const [contents, setContents] = useState([]);
 
   function refresh() {
     axios
-      .get(`${BACKEND_URL}/api/v1/content`, {
+      .get(`${process.env.BACKEND_URL}/api/v1/content`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -19,7 +19,7 @@ export function useContent() {
 
   const deleteContent = async (contentId: string) => {
     try {
-      const response = await axios.delete(`${BACKEND_URL}/api/v1/content`, {
+      const response = await axios.delete(`${process.env.BACKEND_URL}/api/v1/content`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

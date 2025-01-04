@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+import 'dotenv/config'
 import { Link, useNavigate } from "react-router-dom";
 import img1 from "../assets/img3.png"
 
@@ -15,7 +15,7 @@ export function Signup() {
         const username = usernameRef.current?.value;
         console.log(usernameRef.current)
         const password = passwordRef.current?.value;
-        await axios.post(BACKEND_URL + "/api/v1/signup", {
+        await axios.post(process.env.BACKEND_URL + "/api/v1/signup", {
             username,
             password
         })

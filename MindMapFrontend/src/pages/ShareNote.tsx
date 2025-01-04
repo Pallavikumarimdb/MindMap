@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "../components/Button";
-import { BACKEND_URL } from "../config";
+import 'dotenv/config'
 import CrossIcon from "../assets/svg/CrossIcon";
 
 //@ts-ignore
@@ -12,7 +12,7 @@ export default function ShareNote({ open1, onClose1 }) {
 
     const handleShare = async () => {
         try {
-            const response = await axios.post(BACKEND_URL +
+            const response = await axios.post(process.env.BACKEND_URL +
                 "/api/v1/brain/share",
                 {
                     share: true,

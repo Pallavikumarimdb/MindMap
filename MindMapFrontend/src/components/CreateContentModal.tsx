@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import CrossIcon from "../assets/svg/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { BACKEND_URL } from "../config";
 import axios from "axios";
+import 'dotenv/config'
 
 enum ContentType {
     General= "general",
@@ -50,7 +50,7 @@ export function CreateContentModal({open, onClose}) {
         const linkTwit = linkRef.current?.value;
         const link = title==="youtube" || "twitter" ? await extractYouTubeVideoID(link1) : linkTwit;
         console.log("kkkkk  "+link)
-        await axios.post(`${BACKEND_URL}/api/v1/content`, {
+        await axios.post(`${process.env.BACKEND_URL}/api/v1/content`, {
             link,
             title,
             type

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NoteCard } from '../components/NoteCard';
-import { BACKEND_URL } from "../config";
-
+import 'dotenv/config'
 
 interface Note {
     _id: string;
@@ -16,7 +15,7 @@ export default function NotesPage() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/api/v1/notes`, {
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/v1/notes`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },

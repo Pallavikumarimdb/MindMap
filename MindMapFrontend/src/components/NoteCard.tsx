@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Editor } from "novel";
 import axios from "axios";
-
-import { BACKEND_URL } from "../config";
+import 'dotenv/config'
 
 interface Note {
   name: string;
@@ -29,7 +28,7 @@ export function NoteCard({ note, onDelete }: NoteCardProps) {
 
   async function deleteContent(noteId: string) {
     try {
-      await axios.delete(`${BACKEND_URL}/api/v1/notes/${noteId}`, {
+      await axios.delete(`${process.env.BACKEND_URL}/api/v1/notes/${noteId}`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
