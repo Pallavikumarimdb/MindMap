@@ -1,5 +1,5 @@
 import { Editor } from "novel";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { defaultValue } from "./DefaultEdit";
 import axios from "axios";
 import { BACKEND_URL } from "../config";

@@ -1,11 +1,10 @@
-import { useContent } from "../hooks/useContent"
-import { Card } from "../components/Card"
+// import { useContent } from "../hooks/useContent"
 // import MainEditPage from "./Editor";
 import MyEditor from "./Editor";
 
 export default function NoteBook() {
 
-      const {contents} = useContent();
+    //   const {contents} = useContent();
 
     return (
         <div>

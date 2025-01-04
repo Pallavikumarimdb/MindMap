@@ -13,6 +13,8 @@ dist-ssr
 *.local
 
 /src/config.tsx
+.env
+
 
 # Editor directories and files
 .vscode/*
