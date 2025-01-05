@@ -1,10 +1,17 @@
 {
     "version": 2,
+    "name": "mindmap-backend",
     "builds": [
-      { "src": "src/server.ts", "use": "@vercel/node" }
+      {
+        "src": "src/server.ts",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "src/server.ts" }
+      {
+        "src": "/(.*)",
+        "dest": "/src/server.ts"
+      }
     ]
   }
   
