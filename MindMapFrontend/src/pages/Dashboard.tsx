@@ -23,8 +23,6 @@ export function Dashboard() {
   }, [shareOpen])
 
 
-  console.log(shareOpen);
-
   const ContentType = {
     NoteBook: "Text Editor",
     SortNote: "Notes",

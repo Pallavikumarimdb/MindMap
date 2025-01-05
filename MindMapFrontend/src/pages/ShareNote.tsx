@@ -1,18 +1,18 @@
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "../components/Button";
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+import.meta.env.BACKEND_URL;
 import CrossIcon from "../assets/svg/CrossIcon";
 
 //@ts-ignore
 export default function ShareNote({ open1, onClose1 }) {
     const [shareLink, setShareLink] = useState("");
 
-    console.log(open1 + "nnnnn");
+
 
     const handleShare = async () => {
         try {
-            const response = await axios.post(BACKEND_URL +
+            const response = await axios.post(process.env.BACKEND_URL +
                 "/api/v1/brain/share",
                 {
                     share: true,

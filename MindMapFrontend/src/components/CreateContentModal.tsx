@@ -3,8 +3,7 @@ import CrossIcon from "../assets/svg/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import axios from "axios";
-
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+import.meta.env.BACKEND_URL;
 
 enum ContentType {
     General= "general",
@@ -50,8 +49,8 @@ export function CreateContentModal({open, onClose}) {
         const title = titleRef.current?.value;
         const linkTwit = linkRef.current?.value;
         const link = title==="youtube" || "twitter" ? await extractYouTubeVideoID(link1) : linkTwit;
-        console.log("kkkkk  "+link)
-        await axios.post(`${BACKEND_URL}/api/v1/content`, {
+        console.log("kkkkk  "+process.env.BACKEND_URL)
+        await axios.post(`${process.env.BACKEND_URL}/api/v1/content`, {
             link,
             title,
             type

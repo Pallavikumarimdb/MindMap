@@ -2,7 +2,7 @@ import { Editor } from "novel";
 import { useState } from "react";
 import { defaultValue } from "./DefaultEdit";
 import axios from "axios";
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+import.meta.env.BACKEND_URL;
 
 export default function MyEditor() {
   const [content, setContent] = useState(() => {
@@ -22,7 +22,6 @@ export default function MyEditor() {
   const saveNote = async () => {
     
     if (!noteName.trim()) {
-      console.log("New note created:");
       setError("Note name is required.");
       return;
     }
@@ -31,8 +30,8 @@ export default function MyEditor() {
     try {
       //@ts-ignore
       const content = await  JSON.parse(localStorage.getItem("novel__content"));
-      const response = await axios.post(
-        `${BACKEND_URL}/api/v1/notes`,
+        await axios.post(
+        `${process.env.BACKEND_URL}/api/v1/notes`,
         { name: noteName, content },
         {
           headers: {
@@ -40,11 +39,13 @@ export default function MyEditor() {
           },
         }
       );
-      console.log("New note created:", response.data);
     } catch (err) {
       console.error("Error saving note:", err);
     }
   };
+
+
+  
 
   return (
     <main className="ml-[4%] mr-[4%] flex min-h-screen bg-gray-700 text-slate-300 flex-col rounded-2xl items-center justify-between">

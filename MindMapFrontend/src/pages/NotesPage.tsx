@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NoteCard } from '../components/NoteCard';
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+import.meta.env.BACKEND_URL;
 
 interface Note {
     _id: string;
@@ -9,27 +9,21 @@ interface Note {
     content: string;
   }
 
+
 export default function NotesPage() {
   const [notes, setNotes] = useState<Note[]>([]);
 
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/api/v1/notes`, {
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/v1/notes`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },
         });
+
   
-        console.log("Fetched Notes:", response.data);
-  
-        // Assuming response.data is an array
-        //@ts-ignore
-        response.data.forEach(note => {
-          console.log("Note Name:", note.name);
-        });
-  
-        setNotes(response.data); // Store the notes
+        setNotes(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
         console.error('Failed to fetch notes:', error);
       }
@@ -37,6 +31,11 @@ export default function NotesPage() {
   
     fetchNotes();
   }, []);
+
+
+  if (!Array.isArray(notes)) {
+    return <div>Loading or No Notes Available</div>;
+  }
 
   const handleDelete = (noteId: string) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note._id !== noteId));

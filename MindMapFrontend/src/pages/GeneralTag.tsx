@@ -3,6 +3,10 @@ import { Card } from '../components/Card';
 
 export default function GeneralTag() {
     const { contents, deleteContent } = useContent();
+
+    if (!contents) {
+        return null; // or some loading indicator
+    }
   return (
             <div>
                 <div className="mt-16 ml-10">

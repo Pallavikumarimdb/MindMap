@@ -4,6 +4,10 @@ import { Card } from "../components/Card";
 export default function TwitterTag() {
   const { contents, deleteContent } = useContent();
 
+  if (!contents) {
+    return null; // or some loading indicator
+}
+
   return (
     <div>
       <div className="mt-16 ml-10">
