@@ -1,10 +1,11 @@
 {
     "version": 2,
-    "name": "crms",
+    "name": "note-app",
     "builds": [
-       { "src": "server.ts", "use": "@vercel/node" }
+      { "src": "dist/server.js", "use": "@vercel/node" }
     ],
     "routes": [
-       { "src": "/(.*)", "dest": "/server.ts" }
+      { "src": "/(.*)", "dest": "/dist/server.js" }
     ]
- }
+  }
+  
