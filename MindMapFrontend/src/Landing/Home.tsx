@@ -88,7 +88,7 @@ export default function Home() {
         <p className="mb-4">© {new Date().getFullYear()} @Note. All rights reserved.</p>
         <div className="flex justify-center space-x-6">
           <a
-            href="https://github.com/yourprofile"
+            href="https://github.com/Pallavikumarimdb"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white"
@@ -104,7 +104,7 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="https://twitter.com/yourprofile"
+            href="https://x.com/pallavimdb"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white"
@@ -120,7 +120,7 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://www.linkedin.com/in/pallavisprofile/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white"
