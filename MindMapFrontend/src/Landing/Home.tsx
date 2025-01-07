@@ -50,12 +50,12 @@ export default function Home() {
                             </div>
                             Go To Note</button></Link>
                 </div>
-                <div className='flex justify-center  pb-20'>
+                <div className='flex justify-center '>
                     <img className="animate-slidein300 p-10" src={lap} alt="" />
                 </div>
 
                 <div className='px-36 pt-6 pb-20 bg-gray-900 '>
-                    <div className='py-10 pb-20 text-slate-200 flex font-bold justify-center text-8xl'>
+                    <div className='py-10 pb-20 text-slate-200 flex font-semibold justify-center text-8xl'>
                         <h1>Dashboard</h1>
                     </div>
                 <div className=' mb-16 flex flex-row gap-6'>
