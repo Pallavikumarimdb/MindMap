@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import lap from "../assets/newww.png"
+import page1 from "../assets/page1.png"
+import page2 from "../assets/page2.png"
+import page3 from "../assets/page3.png"
+import page4 from "../assets/page4.png"
+import page5 from "../assets/page5.png"
 
 export default function Home() {
     return (
-        <div className='bg-gray-600 min-h-screen'>
+        <div className='bg-gray-900 min-h-screen'>
             <div className='pl-8 pr-8 flex justify-between'>
                 <div className="animate-slidein300 items-center mt-6">
                     <div className='flex'>
@@ -30,8 +35,8 @@ export default function Home() {
             <div>
                 <div className='flex mt-[100px] text-slate-100 justify-center'>
                     <div className='text-6xl w-[50%] text-center'>
-                        <h1 className='animate-slidein300 md:text-[8vh]'>Your Ideas, Documents, & Plans Unified. Welcome <span className='underline underline-offset-1'>@Note</span></h1>
-                        <div className='flex justify-center'><p className='animate-slidein300 w-[80%] text-2xl font-medium mt-5'>all-in-one (better, faster work Note Keeping) that tracks your links, projects, notes, and everything in between.</p></div>
+                        <h1 className='animate-slidein300 font-bold md:text-[8vh]'>Your Ideas, Documents, & Plans Unified. Welcome to <span className='underline underline-offset-1'>@Note</span></h1>
+                        <div className='flex justify-center'><p className='animate-slidein300 w-[80%] text-2xl font-medium mt-5'>All-in-one (better, faster work Note Keeping) that tracks your links, projects, notes, and everything in between.</p></div>
                     </div>
                 </div>
                 <div className='flex mt-[50px] text-slate-300 justify-center'>
@@ -45,9 +50,89 @@ export default function Home() {
                             </div>
                             Go To Note</button></Link>
                 </div>
-                <div className='flex justify-center  pb-96'>
+                <div className='flex justify-center  pb-20'>
                     <img className="animate-slidein300 p-10" src={lap} alt="" />
                 </div>
+
+                <div className='px-36 pt-6 pb-20 bg-gray-900 '>
+                    <div className='py-10 pb-20 text-slate-200 flex font-bold justify-center text-8xl'>
+                        <h1>Dashboard</h1>
+                    </div>
+                <div className=' mb-16 flex flex-row gap-6'>
+                    <div className='w-[50%]'>
+                    <img className="shadow-xl shadow-cyan-500/50 rounded-xl animate-slidein300 " src={page1} alt="" />
+                    </div>
+                    <div className='w-[50%]'>
+                    <img className=" rounded-xl animate-slidein300 " src={page2} alt="" />
+                    </div>
+                </div>
+
+                <div className=' flex flex-row gap-6'>
+                    <div className='w-[50%]'>
+                    <img className=" rounded-xl animate-slidein300 " src={page3} alt="" />
+                    </div>
+                    <div className='w-[50%]'>
+                    <img className=" shadow-xl shadow-cyan-500/50 rounded-xl animate-slidein300 " src={page4} alt="" />
+                    </div>
+                </div>
+
+                <div className='flex justify-center mt-16  mb-24 '>
+                    <img className="shadow-xl shadow-cyan-500/50 rounded-xl animate-slidein300 " src={page5} alt="" />
+                </div>
+                </div>
+
+
+
+                <footer className="bg-gray-900 text-white py-4">
+      <div className="container mx-auto text-center">
+        <p className="mb-4">© {new Date().getFullYear()} @Note. All rights reserved.</p>
+        <div className="flex justify-center space-x-6">
+          <a
+            href="https://github.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white"
+            aria-label="GitHub"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.165c-3.338.727-4.033-1.415-4.033-1.415-.547-1.388-1.333-1.758-1.333-1.758-1.089-.745.084-.729.084-.729 1.205.086 1.837 1.236 1.837 1.236 1.07 1.834 2.807 1.304 3.492.996.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.337-5.467-5.943 0-1.312.467-2.384 1.236-3.225-.123-.303-.535-1.521.118-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0112 5.8a11.45 11.45 0 013.292.442c2.292-1.552 3.3-1.23 3.3-1.23.653 1.655.241 2.873.118 3.176.769.841 1.236 1.913 1.236 3.225 0 4.615-2.807 5.64-5.479 5.933.43.372.824 1.103.824 2.222v3.293c0 .32.192.694.801.576C20.565 21.798 24 17.303 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white"
+            aria-label="Twitter"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M24 4.557a9.798 9.798 0 01-2.828.775 4.939 4.939 0 002.165-2.724 9.868 9.868 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.691 7.897 4.067 5.905 1.64 2.904a4.822 4.822 0 00-.664 2.475c0 1.708.869 3.213 2.188 4.096a4.902 4.902 0 01-2.228-.616v.062a4.918 4.918 0 003.946 4.827 4.964 4.964 0 01-2.224.084 4.936 4.936 0 004.604 3.417A9.867 9.867 0 010 19.54a13.905 13.905 0 007.548 2.209c9.056 0 14.009-7.498 14.009-13.987 0-.213-.005-.426-.014-.637A9.936 9.936 0 0024 4.557z" />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white"
+            aria-label="LinkedIn"
+          >
+<svg fill="#9ca3af" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" 
+//@ts-ignore
+xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
             </div>
         </div>
     )

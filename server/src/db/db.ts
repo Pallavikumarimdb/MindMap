@@ -2,10 +2,6 @@ import 'dotenv/config'
 import mongoose, {model, Schema} from "mongoose";
 
 
-console.log('Environment Variables:', process.env.Mongo_DB);
-
-
-
 const mongoDB = process.env.Mongo_DB;
 
 if (!mongoDB) {
