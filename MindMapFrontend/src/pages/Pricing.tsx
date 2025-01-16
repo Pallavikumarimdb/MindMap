@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Pricing: React.FC = () => {
   return (
@@ -37,13 +38,14 @@ const Pricing: React.FC = () => {
             <p className="mt-6 text-base/7 text-gray-600">
               The perfect plan if you're just getting started with our product.
             </p>
+            <Link to={"/comingsoon"}>
             <a
-              href={"/comingsoon"}
               aria-describedby="tier-hobby"
               className="mt-8 block bg-gray-900 rounded-md px-3.5 py-2.5 text-center text-md font-bold text-slate-100 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-10"
             >
               Get started today
             </a>
+            </Link>
           </div>
           <div className="relative rounded-3xl bg-gray-900 p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10">
             <h3 id="tier-enterprise" className="text-3xl text-slate-100">
@@ -58,13 +60,14 @@ const Pricing: React.FC = () => {
             <p className="mt-6 text-base/7 text-gray-300">
             Enjoy maximum savings and exclusive features with our Yearly plan.
             </p>    
+            <Link to={"/comingsoon"}>
             <a
-              href={"/comingsoon"}
               aria-describedby="tier-enterprise"
               className="mt-8 block bg-gradient-to-r from-amber-500 to-pink-500 rounded-md px-3.5 py-2.5 text-center text-center text-md font-bold text-gray-950 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 sm:mt-10"
             >
               Get started today
             </a>
+            </Link>
           </div>
         </div>
       </div>
