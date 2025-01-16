@@ -9,6 +9,7 @@ import GeneralTag from "./pages/GeneralTag"
 import DashboardHome from "./pages/DashboardHome"
 import NotesPage from "./pages/NotesPage"
 import Home from "./Landing/Home"
+import ComingSoon from "./pages/ComingSoon"
 
 import axios from "axios"
 import { useEffect, useState } from "react"
@@ -65,6 +66,7 @@ function App() {
       <Route path="notepage" element={<NotesPage />} />
       <Route path="general" element={<GeneralTag />}/>
       </Route>
+      <Route path="comingsoon" element={<ComingSoon />}/>
     </Routes>
   </BrowserRouter>
 }

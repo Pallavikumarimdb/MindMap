@@ -20,7 +20,7 @@ export default function MyEditor() {
   const [error, setError] = useState(""); // State to handle errors
 
   const saveNote = async () => {
-    
+
     if (!noteName.trim()) {
       setError("Note name is required.");
       return;
@@ -29,8 +29,8 @@ export default function MyEditor() {
     setError(""); // Clear any previous error
     try {
       //@ts-ignore
-      const content = await  JSON.parse(localStorage.getItem("novel__content"));
-        await axios.post(
+      const content = await JSON.parse(localStorage.getItem("novel__content"));
+      await axios.post(
         `${process.env.BACKEND_URL}/api/v1/notes`,
         { name: noteName, content },
         {
@@ -45,7 +45,7 @@ export default function MyEditor() {
   };
 
 
-  
+
 
   return (
     <main className="ml-[4%] mr-[4%] flex min-h-screen bg-gray-700 text-slate-300 flex-col rounded-2xl items-center justify-between">
@@ -54,21 +54,22 @@ export default function MyEditor() {
           <h1 className="text-4xl font-semibold">👩‍💻 Edit Your Note Here</h1>
         </div>
         <p className="text-slate-600 pt-0">Click to Start & Press '/' for commands</p>
-        <div className="mt-10 flex">
-        <input
-          placeholder="Name Your Note"
-          type="text"
-          value={noteName} 
-          onChange={(e) => setNoteName(e.target.value)}
-          className="w-[30%] px-4 py-2 border rounded bg-gray-700 shadow-inner shadow-slate-300"
-        />
-        <button
-          onClick={saveNote}
-          className="ml-1 font-bold bg-blue-500 px-2 h-11 border rounded bg-gray-700 shadow-inner bg-slate-300 text-gray-950 shadow-slate-300 hover:bg-blue-600"
-        >
-          Save Note
-        </button>
+        <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+          <input
+            placeholder="Name Your Note...."
+            type="text"
+            value={noteName}
+            onChange={(e) => setNoteName(e.target.value)}
+            className="w-full sm:w-[70%] px-4 py-2 border rounded bg-gray-700 shadow-inner shadow-slate-300"
+          />
+          <button
+            onClick={saveNote}
+            className="w-full sm:w-auto ml-0 sm:ml-1 font-bold bg-blue-500 px-4 py-2 h-11 border rounded bg-slate-300 text-gray-950 shadow-inner shadow-slate-300 hover:bg-blue-600"
+          >
+            Save Note
+          </button>
         </div>
+
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <Editor
           className="shadow-inner shadow-slate-300 min-h-[400px] text-slate-300 p-4 pt-0 bg-gray-700 rounded-md"

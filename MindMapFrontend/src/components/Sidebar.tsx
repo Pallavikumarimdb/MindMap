@@ -35,17 +35,8 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
             }}
         >
             <div className="flex justify-between pr-2 mb-10">            {/* Toggle Button */}
-    
-
-                {/* Logo Section */}
+                <Link to={"/"}>
                 <div className=" flex items-center justify-between mt-4">
-                    {/* <img
-                    src={logo2}
-                    className={`h-10 w-10 rounded-full transition-opacity ${
-                        isOpen ? "opacity-100" : "opacity-0"
-                    }`}
-                    alt="Logo"
-                /> */}
                     {isOpen &&
                         <div className="w-10 ml-4">
                             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
@@ -55,45 +46,48 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
                     }
                     {isOpen && <span className=" mt-5 text-2xl text-base font-bold text-slate-300">@Note</span>}
                 </div>
+                </Link>
 
                 <div className=" flex justify-end pl-3 pr-2">
                     <button
                         onClick={toggleSidebar}
                         className="w-7 h-10 flex pt-8 "
                     >
-                        <svg
-                            className="mb-0 "
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                            <g
-                                id="SVGRepo_tracerCarrier"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            ></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M4 7L7 7M20 7L11 7"
-                                    stroke="#bfc9d5"
-                                    strokeWidth="1.5"
+                        <div className="w-10">
+                            <svg
+                                className="mb-0 "
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g
+                                    id="SVGRepo_tracerCarrier"
                                     strokeLinecap="round"
-                                ></path>
-                                <path
-                                    d="M20 17H17M4 17L13 17"
-                                    stroke="#bfc9d5"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                ></path>
-                                <path
-                                    d="M4 12H7L20 12"
-                                    stroke="#cbd5e1"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                ></path>
-                            </g>
-                        </svg>
+                                    strokeLinejoin="round"
+                                ></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M4 7L7 7M20 7L11 7"
+                                        stroke="#bfc9d5"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                    ></path>
+                                    <path
+                                        d="M20 17H17M4 17L13 17"
+                                        stroke="#bfc9d5"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                    ></path>
+                                    <path
+                                        d="M4 12H7L20 12"
+                                        stroke="#cbd5e1"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                    ></path>
+                                </g>
+                            </svg>
+                        </div>
                     </button>
                 </div>
 
@@ -109,10 +103,10 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
                     />
                 </Link>
 
-                {isOpen &&  <div
+                {isOpen && <div
                     className="mt-36 font-bold tracking-tight text-slate-500  rounded  pl-4 transition-all duration-150">
                     <div className="mt-10 mb-8">
-                    <p>Note Types</p>
+                        <p>Note Types</p>
                     </div>
                 </div>}
                 <Link to="/dashboard/notebook" className="animate-slidein500">
@@ -129,7 +123,7 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
                 </Link>
                 <Link to="/dashboard/general" className="animate-slidein900">
                     <SidebarItem
-                        text={isOpen ? ContentType.General: ""}
+                        text={isOpen ? ContentType.General : ""}
                         icon={<GeneralLink />}
                     />
                 </Link>
