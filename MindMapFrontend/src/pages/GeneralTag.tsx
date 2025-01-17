@@ -8,8 +8,8 @@ export default function GeneralTag() {
         return null; // or some loading indicator
     }
   return (
-            <div>
-                <div className="mt-16 ml-10">
+            <div className='mx-10 py-10'>
+                <div className="mt-16 ">
                     <div className="flex gap-4 flex-wrap">
                         {contents
                             .filter(({ type }) => type === "general") 
