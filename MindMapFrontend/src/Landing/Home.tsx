@@ -23,9 +23,9 @@ export default function Home() {
         </div>
         <div className='mt-8 mr-10 '>
           <Link to="/dashboard" className="animate-slidein300">
-            <button className=" flex font-bold bg-slate-300 text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
+            <button className=" flex font-bold bg-slate-300 bg-gradient-to-r from-amber-500 to-pink-500  text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
             }}>
-              <span className='p-3 pl-4 font-extrabold'>Join Now</span>
+              <span className='p-2 pr-4 pl-4 font-bold'>Join Now</span>
             </button>
           </Link>
         </div>
@@ -37,12 +37,12 @@ export default function Home() {
         <div className='flex mt-[100px] text-slate-100 justify-center'>
           <div className='text-6xl w-[50%] text-center'>
             <h1 className='animate-slidein300 font-bold md:text-[8vh]'>Your Ideas, Documents, & Plans Unified. Welcome to <span className='text-8xl  bg-gradient-to-r from-amber-500 to-pink-500 text-transparent bg-clip-text'>@Note</span></h1>
-            <div className='flex justify-center'><p className='animate-slidein300 w-[80%] text-xl text-slate-500 font-medium mt-5'>All-in-one (better, faster work Note Keeping) that tracks your links, projects, notes, and everything in between.</p></div>
+            <div className='flex justify-center'><p className='animate-slidein300 w-[80%] text-xl text-slate-500 font-medium mt-5'>All-in-one note Keeping that tracks your links, projects, notes, and everything in between.</p></div>
           </div>
         </div>
         <div className='flex mt-[50px] text-slate-300 justify-center'>
           <Link to="/dashboard/" className="animate-slidein300">
-            <button className="p-3 pl-6 flex pr-6 bg-slate-200 text-gray-950 font-bold   tracking-tight rounded-md" onClick={() => {
+            <button className="p-3 pl-6 flex pr-6 bg-slate-200 bg-gradient-to-r from-amber-500 to-pink-500 text-gray-950 font-bold   tracking-tight rounded-md" onClick={() => {
             }}>
               <div className=' mr-2 w-6 '>
                 <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"

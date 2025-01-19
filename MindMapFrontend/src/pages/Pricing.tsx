@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Pricing: React.FC = () => {
   return (
     <div>
-      <div className="relative isolate bg-slate-400 px-6 py-24 sm:py-32 lg:px-8">
+      <div className="relative isolate bg-slate-400 px-6 py-10 sm:py-16 lg:px-8">
         <div
           className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
           aria-hidden="true"
@@ -20,11 +20,11 @@ const Pricing: React.FC = () => {
           ></div>
         </div>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
+          <p className=" text-balance tracking-tight text-gray-900 font-semibold  text-8xl sm:text-4xl lg:text-8xl">
             Pricing
           </p>
         </div>
-        <div className="mx-auto mt-16 grid gap-8 max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+        <div className="mx-auto mt-16 pb-20 grid gap-8 max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
           <div className="rounded-xl  bg-white/60 p-8 ring-1 ring-gray-900/10 sm:mx-8 ">
             <h3 id="tier-hobby" className="text-3xl text-gray-950">
               Monthly

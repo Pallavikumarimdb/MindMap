@@ -308,6 +308,36 @@ app.put('/api/v1/notes/:id', authMiddleware, async (req, res) => {
   });
   
 
+//@ts-ignore
+app.get('/api/v1/search', authMiddleware, async(req, res)=>{
+    const query=req.query.q;
+
+    if(!query){
+        return res.status(400).send("Search input required");
+    }
+
+    try {
+        const notes=await Note.find({
+            $or: [
+                //@ts-ignore
+                {name: new RegExp(query, 'i')},
+                //@ts-ignore
+                {content: new RegExp(query, 'i')},
+            ]
+        });
+
+        const links = await ContentModel.find({
+            //@ts-ignore
+            title: new RegExp(query, 'i')
+        });
+
+        res.json({notes, links});
+    } catch (error) {
+        res.status(500).json({ error: 'Server error' });
+    }
+
+})
+
 
 
 app.listen(3000);
