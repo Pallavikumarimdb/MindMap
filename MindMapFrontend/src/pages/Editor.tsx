@@ -26,9 +26,10 @@ export default function MyEditor() {
       return;
     }
 
+
     setError(""); // Clear any previous error
     try {
-      //@ts-ignore
+      //@ts-ignore3
       const content = await JSON.parse(localStorage.getItem("novel__content"));
       await axios.post(
         `${process.env.BACKEND_URL}/api/v1/notes`,

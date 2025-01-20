@@ -7,7 +7,7 @@ interface CardProps {
   link: string;
   type: "twitter" | "youtube" | "general";
   contentId: string; // Unique identifier for the content
-  onDelete: (contentId: string) => void;
+  onDelete?: (contentId: string) => void;
 }
 
 export function Card({ title, link, type, contentId, onDelete }: CardProps) {
