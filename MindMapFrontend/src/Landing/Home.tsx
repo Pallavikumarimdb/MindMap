@@ -5,7 +5,66 @@ import page2 from "../assets/page2.png"
 import page3 from "../assets/page3.png"
 import page4 from "../assets/page4.png"
 import page5 from "../assets/page5.png"
-import Pricing from '../pages/Pricing'
+// import Pricing from '../pages/Pricing'
+import { motion } from 'framer-motion';
+import { Brain, ChevronRight, CheckCircle2, Star, Users, BookOpen, Sparkles } from 'lucide-react';
+
+
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+
+
+const features = [
+  {
+    icon: Brain,
+    title: 'Build Your Second Brain',
+    description: 'Transform information overload into organized knowledge that serves you for life'
+  },
+  {
+    icon: BookOpen,
+    title: 'Proven Framework',
+    description: 'Learn the PARA method - a tested system for organizing your digital life'
+  },
+  {
+    icon: Sparkles,
+    title: 'AI-Enhanced Learning',
+    description: 'Leverage AI to connect ideas and surface relevant insights when you need them'
+  },
+  {
+    icon: Users,
+    title: 'Join the Community',
+    description: 'Connect with thousands of knowledge workers and lifelong learners'
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah Chen",
+    role: "Product Manager",
+    text: "This system completely transformed how I manage information. I'm more productive and creative than ever.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+  },
+  {
+    name: "Michael Torres",
+    role: "Content Creator",
+    text: "The PARA method changed my content creation workflow. Everything is organized and easily accessible.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+  }
+];
+
+const benefits = [
+  'Master information organization',
+  'Boost creative output',
+  'Never lose important ideas',
+  'Build lasting knowledge',
+  'Reduce digital overwhelm',
+  'Access insights instantly'
+];
+
 
 export default function Home() {
   return (
@@ -23,9 +82,9 @@ export default function Home() {
         </div>
         <div className='mt-8 mr-10 '>
           <Link to="/dashboard" className="animate-slidein300">
-            <button className=" flex font-bold bg-slate-300 bg-gradient-to-r from-amber-500 to-pink-500  text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
+            <button className=" flex font-bold bg-slate-300  text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
             }}>
-              <span className='p-2 pr-4 pl-4 font-bold'>Join Now</span>
+              <span className='p-2 pr-4 pl-4 font-extrabold'>Join Now</span>
             </button>
           </Link>
         </div>
@@ -35,56 +94,161 @@ export default function Home() {
 
       <div>
         <div className='flex mt-[100px] text-slate-100 justify-center'>
-          <div className='text-6xl w-[50%] text-center'>
-            <h1 className='animate-slidein300 font-bold md:text-[8vh]'>Your Ideas, Documents, & Plans Unified. Welcome to <span className='text-8xl  bg-gradient-to-r from-amber-500 to-pink-500 text-transparent bg-clip-text'>@Note</span></h1>
+          <div className='text-6xl w-[70%] text-center'>
+            <h1 className='animate-slidein300 font-bold md:text-[10vh]'>Your Ideas, Documents, & Plans Unified.</h1>
             <div className='flex justify-center'><p className='animate-slidein300 w-[80%] text-xl text-slate-500 font-medium mt-5'>All-in-one note Keeping that tracks your links, projects, notes, and everything in between.</p></div>
           </div>
         </div>
         <div className='flex mt-[50px] text-slate-300 justify-center'>
           <Link to="/dashboard/" className="animate-slidein300">
-            <button className="p-3 pl-6 flex pr-6 bg-slate-200 bg-gradient-to-r from-amber-500 to-pink-500 text-gray-950 font-bold   tracking-tight rounded-md" onClick={() => {
+            <button className="p-3 pl-6 flex pr-6 text-black font-extrabold  bg-slate-300 font-bold   tracking-tight rounded-md" onClick={() => {
             }}>
               <div className=' mr-2 w-6 '>
                 <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   //@ts-ignore
                   xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier"> <path fill="#000000" d="M8 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"></path> 
-                  <path fill="#000000" d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"></path> </g></svg>
+                  <g id="SVGRepo_iconCarrier"> <path fill="#000000" d="M8 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"></path>
+                    <path fill="#000000" d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"></path> </g></svg>
               </div>
               Go To Note</button></Link>
         </div>
+        <header className="container mx-auto  mt-10 text-center relative">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="inline-block mb-6 px-4 py-1 bg-blue-500/50 rounded-full text-white text-sm font-medium">
+              Your Digital Knowledge System
+            </div>
+            <div className="text-gray-400 flex items-center justify-center gap-8">
+              <div className="flex items-center">
+                <Star className="text-yellow-400 mr-2" size={20} />
+                <span>4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center">
+                <Users className="text-blue-400 mr-2" size={20} />
+                <span>10,000+ Students</span>
+              </div>
+            </div>
+          </motion.div>
+        </header>
         <div className='flex justify-center '>
           <img className="animate-slidein300 p-10" src={lap} alt="" />
         </div>
 
-        <div className='px-36 pt-6 pb-20 bg-gray-900 '>
-          <div className='py-10 pb-20 text-slate-200 flex font-semibold justify-center text-8xl sm:text-4xl lg:text-8xl'>
+
+        {/* Features Section */}
+        <div className='px-[10%]'>
+          <div className="min-h-screen  text-white">
+            {/* Hero Section */}
+
+
+            {/* Features Grid */}
+            <section className=" py-32">
+              <div className="container mx-auto px-6">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-center mb-20"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">Master Your Knowledge</h2>
+                  <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Learn a proven system for capturing, organizing, and sharing your knowledge
+                    that will serve you for life.
+                  </p>
+                </motion.div>
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                  {features.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="border-1 border-slate-300  p-8 rounded-2xl hover:bg-gray-750 transition-all border border-gray-700"
+                      >
+                        <Icon className="w-12 h-12 text-blue-400 mb-6" />
+                        <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">{feature.description}</p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
+            {/* Benefits Section */}
+            <section className="py-32">
+              <div className="container mx-auto px-6">
+                <div className="grid md:grid-cols gap-8 items-center">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative"
+                  >
+                    <div className='flex justify-center mt-16  mb-24 '>
+                      <img className="rounded-xl border-2 border-slate-300 animate-slidein300 " src={page5} alt="" />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-16 rounded-2xl mt-10 mb-32">
+              <div className="container mx-auto px-6 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Build Your Second Brain?</h2>
+                  <p className="text-xl mb-12 text-gray-300">
+                    Join thousands of knowledge workers who have transformed their digital lives
+                    with our proven system.
+                  </p>
+                  <button className="bg-slate-300 text-gray-900 px-12 py-4 rounded-lg font-bold transition-all text-lg">
+                    Start Your Journey Today
+                  </button>
+                </motion.div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+        <div className='px-36 rounded-md pt-6 pb-20 bg-gray-900 '>
+          <div className='py-10 mt-10 pb-20 text-slate-200 flex font-semibold justify-center text-6xl sm:text-4xl lg:text-7xl'>
             <h1>Dashboard</h1>
           </div>
           <div className=' mb-16 flex flex-row gap-12'>
-            <div className=''>
-              <img className="shadow-xl shadow-amber-500/50 rounded-xl animate-slidein300 " src={page1} alt="" />
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-1">
+              <div className=" rounded-xl bg-gray-800 p-8">
+                <img className="shadow-xl shadow-amber-500/50 rounded-xl animate-slidein300 " src={page1} alt="" />
+                <img className=" shadow-xl mt-20 shadow-pink-500/50 rounded-xl animate-slidein300 " src={page4} alt="" />
+              </div>
             </div>
-            <div className=''>
-              <img className=" rounded-xl animate-slidein300 " src={page2} alt="" />
+
+
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-1">
+              <div className=" rounded-xl bg-gray-800 p-8">
+                <img className="shadow-xl shadow-amber-500/50 rounded-xl animate-slidein300 " src={page2} alt="" />
+                <img className=" shadow-xl mt-20 shadow-pink-500/50 rounded-xl animate-slidein300 " src={page3} alt="" />
+              </div>
             </div>
           </div>
 
-          <div className=' flex flex-row gap-12'>
-            <div className=''>
-              <img className=" rounded-xl animate-slidein300 " src={page3} alt="" />
-            </div>
-            <div className=''>
-              <img className=" shadow-xl shadow-pink-500/50 rounded-xl animate-slidein300 " src={page4} alt="" />
-            </div>
-          </div>
 
-          <div className='flex justify-center mt-16  mb-24 '>
-            <img className="shadow-xl shadow-amber-500/50 rounded-xl animate-slidein300 " src={page5} alt="" />
-          </div>
         </div>
 
-        <Pricing/>
+        {/* <Pricing/> */}
 
         <footer className="bg-gray-900 text-white py-20">
           <div className="container mx-auto text-center">
@@ -140,3 +304,6 @@ export default function Home() {
     </div>
   )
 }
+
+
+
