@@ -8,7 +8,7 @@ import img1 from "../assets/img3.png"
 
 
 interface SignInProps {
-    onSignIn: () => void; // Callback to update authentication state
+    onSignIn: () => void;
   }
 
 export const Signin: React.FC<SignInProps> = ({ onSignIn }) => {

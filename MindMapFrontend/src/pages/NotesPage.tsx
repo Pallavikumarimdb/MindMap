@@ -34,7 +34,7 @@ export default function NotesPage() {
 
 
   if (!Array.isArray(notes)) {
-    return <div>Loading or No Notes Available</div>;
+    return <div>No Notes Available...</div>;
   }
 
   const handleDelete = (noteId: string) => {
@@ -43,7 +43,7 @@ export default function NotesPage() {
   
 
   return (
-    <div className='mt-16 flex flex-wrap gap-4 '    >
+    <div className='mt-16 ml-14 flex flex-wrap gap-4 '    >
       {notes.map((note) => (
         //@ts-ignore
         <NoteCard key={note._id} note={note} onDelete={handleDelete} />

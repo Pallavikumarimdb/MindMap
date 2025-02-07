@@ -22,7 +22,6 @@ export function CreateContentModal({open, onClose}) {
     async  function extractYouTubeVideoID(link2) {
 
         if (type === "twitter") {
-             // Regular expression to match twitter post ID patterns
             const match = link2.match(/(?:https?:\/\/)?(?:www\.)?x\.com\/(.*?\/status\/\d+)/);
             if (match) {
                 return (match[1]);
@@ -31,14 +30,6 @@ export function CreateContentModal({open, onClose}) {
 
         
         if (type === "youtube" || "general") {
-        // Regular expression to match YouTube video ID patterns
-        // const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w-]{11})/;
-        // const match = await link2.match(regex);
-        // if (match && match[1]) {
-        //   return match[1];
-        // } else {
-        //   return null; 
-        // }
         return linkRef.current?.value;
     }
       }
@@ -72,7 +63,7 @@ export function CreateContentModal({open, onClose}) {
             </div>
             <div className="z-10 w-screen h-screen fixed top-0 left-0 flex p-10 ml-[30%] mt-[10%]">
                 <div className="flex flex-col ">
-                    <span className="bg-white opacity-100 p-6 px-10 rounded fixed">
+                    <span className="rounded-2xl bg-gray-900 opacity-100 p-6 px-10 rounded fixed">
                         <div className="flex justify-end">
                             <div onClick={onClose} className="cursor-pointer w-6 mb-4">
                                 <CrossIcon />
@@ -83,20 +74,20 @@ export function CreateContentModal({open, onClose}) {
                             <Input reference={linkRef} placeholder={"Enter Favourite Link"} />
                         </div>
                         <div>
-                            <div className="mt-4 flex  gap-1 justify-center pb-2">
-                                <button className=" bg-purple-300 text-purple-600 px-2 "  onClick={() => {
+                            <div className="mt-4 flex mt-6 gap-1 justify-center pb-2">
+                                <button className="rounded-2xl bg-purple-300 text-purple-600 px-2 "  onClick={() => {
                                     setType(ContentType.Youtube)
                                 }}>#Youtube</button>
-                                <button className="bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
+                                <button className="rounded-2xl bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
                                     setType(ContentType.Twitter)
                                 }}>#Twitter</button>
-                                <button className="bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
+                                <button className="rounded-2xl bg-purple-300 text-purple-600 px-2 gap-2"  onClick={() => {
                                     setType(ContentType.General)
                                 }}>#General</button>
                             </div>
                         </div>
                         <div className="mt-6 flex justify-center">
-                            <Button onClick={addContent} variant="primary" text="Submit" />
+                            <Button onClick={addContent} variant="primary" className="bg-slate-300"text="Submit" />
                         </div>
                     </span>
                 </div>     

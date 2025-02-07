@@ -5,9 +5,8 @@ import page2 from "../assets/page2.png"
 import page3 from "../assets/page3.png"
 import page4 from "../assets/page4.png"
 import page5 from "../assets/page5.png"
-// import Pricing from '../pages/Pricing'
 import { motion } from 'framer-motion';
-import { Brain, ChevronRight, CheckCircle2, Star, Users, BookOpen, Sparkles } from 'lucide-react';
+import { Brain, Star, Users, BookOpen, Sparkles } from 'lucide-react';
 
 
 const fadeIn = {
@@ -41,29 +40,7 @@ const features = [
   }
 ];
 
-const testimonials = [
-  {
-    name: "Sarah Chen",
-    role: "Product Manager",
-    text: "This system completely transformed how I manage information. I'm more productive and creative than ever.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
-  },
-  {
-    name: "Michael Torres",
-    role: "Content Creator",
-    text: "The PARA method changed my content creation workflow. Everything is organized and easily accessible.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
-  }
-];
 
-const benefits = [
-  'Master information organization',
-  'Boost creative output',
-  'Never lose important ideas',
-  'Build lasting knowledge',
-  'Reduce digital overwhelm',
-  'Access insights instantly'
-];
 
 
 export default function Home() {
@@ -125,11 +102,11 @@ export default function Home() {
             <div className="text-gray-400 flex items-center justify-center gap-8">
               <div className="flex items-center">
                 <Star className="text-yellow-400 mr-2" size={20} />
-                <span>4.9/5 Rating</span>
+                <span>4.5/5 Rating</span>
               </div>
               <div className="flex items-center">
                 <Users className="text-blue-400 mr-2" size={20} />
-                <span>10,000+ Students</span>
+                <span>1000+ People</span>
               </div>
             </div>
           </motion.div>

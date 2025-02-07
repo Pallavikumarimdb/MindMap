@@ -2,37 +2,33 @@ import { Editor } from "novel";
 import { useState } from "react";
 import { defaultValue } from "./DefaultEdit";
 import axios from "axios";
-import.meta.env.BACKEND_URL;
 
 export default function MyEditor() {
   const [content, setContent] = useState(() => {
-
     const savedContent = localStorage.getItem("novel__content");
     return savedContent ? JSON.parse(savedContent) : defaultValue;
   });
 
-  // Save content to localStorage whenever it changes
-  // useEffect(() => {
-  //     localStorage.setItem("editorContent", JSON.stringify(content));
-  // }, [content]);
+  const [noteName, setNoteName] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); 
+  const [popupMessage, setPopupMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
-  const [noteName, setNoteName] = useState(""); // State for the note name
-  const [error, setError] = useState(""); // State to handle errors
 
   const saveNote = async () => {
-
     if (!noteName.trim()) {
       setError("Note name is required.");
       return;
     }
 
-
-    setError(""); // Clear any previous error
+    setError("");
+    setLoading(true); 
     try {
-      //@ts-ignore3
+      //@ts-ignore
       const content = await JSON.parse(localStorage.getItem("novel__content"));
       await axios.post(
-        `${process.env.BACKEND_URL}/api/v1/notes`,
+       ` ${process.env.BACKEND_URL}/api/v1/notes`,
         { name: noteName, content },
         {
           headers: {
@@ -40,13 +36,16 @@ export default function MyEditor() {
           },
         }
       );
+      setPopupMessage("Note successfully saved! 🎉");
+      setShowPopup(true);
     } catch (err) {
       console.error("Error saving note:", err);
+      setPopupMessage("Failed to save note. Please try again. 😔");
+      setShowPopup(true);
+    } finally {
+      setLoading(false);
     }
   };
-
-
-
 
   return (
     <main className="ml-[4%] mr-[4%] flex min-h-screen bg-gray-700 text-slate-300 flex-col rounded-2xl items-center justify-between">
@@ -65,9 +64,38 @@ export default function MyEditor() {
           />
           <button
             onClick={saveNote}
-            className="w-full sm:w-auto ml-0 sm:ml-1 font-bold bg-blue-500 px-4 py-2 h-11 border rounded bg-slate-300 text-gray-950 shadow-inner shadow-slate-300 hover:bg-blue-600"
+            disabled={loading}
+            className={`w-full sm:w-auto ml-0 sm:ml-1 font-bold px-4 py-2 h-11 border rounded ${
+              loading ? "bg-gray-400" : "bg-blue-500 text-gray-950 hover:bg-blue-600"
+            }`}
           >
-            Save Note
+            {loading ? (
+              <span className="flex items-center">
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  />
+                </svg>
+                Saving...
+              </span>
+            ) : (
+              "Save Note"
+            )}
           </button>
         </div>
 
@@ -79,6 +107,20 @@ export default function MyEditor() {
           onChange={(newContent) => setContent(newContent)}
         />
       </div>
+
+      {showPopup && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-gray-700 rounded-lg p-6 w-96 text-center shadow-lg">
+            <p className="text-lg font-semibold">{popupMessage}</p>
+            <button
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={() => setShowPopup(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

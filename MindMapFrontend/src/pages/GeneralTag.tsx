@@ -5,10 +5,10 @@ export default function GeneralTag() {
     const { contents, deleteContent } = useContent();
 
     if (!contents) {
-        return null; // or some loading indicator
+        return <div> No Links Available...</div>;
     }
   return (
-            <div className='mx-10 py-10'>
+            <div className='mx-10  ml-16  py-10'>
                 <div className="mt-16 ">
                     <div className="flex gap-4 flex-wrap">
                         {contents

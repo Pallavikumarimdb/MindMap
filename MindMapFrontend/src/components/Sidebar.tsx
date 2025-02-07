@@ -94,7 +94,6 @@ export function Sidebar({ ContentType, isOpen, setIsOpen }: SidebarProps) {
 
             </div>
 
-            {/* Navigation Items */}
             <div className="mt-20 space-y-4">
                 <Link to="/dashboard/" className="animate-slidein300">
                     <SidebarItem

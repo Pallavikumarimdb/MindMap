@@ -6,12 +6,12 @@ export default function YouTubeTag() {
     //@ts-ignore
 
     if (!contents) {
-        return null; // or some loading indicator
+        return <div> No YouTube Links Available...</div>;
     }
     
     return (
         <div>
-            <div className="mt-16 ml-10 py-10">
+            <div className="mt-16  ml-16  py-10">
                 <div className="flex gap-4 flex-wrap">
                     {contents
                         .filter(({ type }) => type === "youtube") 

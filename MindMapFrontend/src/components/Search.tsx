@@ -20,7 +20,7 @@ export default function Search() {
                     Authorization: localStorage.getItem("token"),
                 }
             });
-            setResults(response.data); // Ensure response.data is an array
+            setResults(response.data);
             setPopupVisible(true);
         } catch (error) {
             console.error('Error fetching search results:', error);
@@ -61,7 +61,7 @@ export default function Search() {
             </div>
 
 
-            {/* Popup displaying search results */}
+
             {isPopupVisible && (
                 <div>
                     <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex ">
@@ -76,12 +76,6 @@ export default function Search() {
                         </button>
                         <h3 className="text-slate-100 text-3xl  font-bold">Search Results</h3>
                         <div className='flex flex-col sm:flex-row flex-wrap'>
-                            {/* {results.notes.map((note: any) => (
-                            <div key={note._id}>
-                            <h3>{note.title}</h3>
-                            <p>{note.content}</p>
-                            </div>
-                            ))} */}
                             {results.links.map((link: any) => (
                                 <div key={link._id} className='my-4 mx-2 flex flex-col sm:flex-1 sm:w-1/2 lg:w-1/4'>
                                     <Card
