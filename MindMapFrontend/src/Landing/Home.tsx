@@ -45,7 +45,7 @@ const features = [
 
 export default function Home() {
   return (
-    <div className='bg-gray-900 min-h-screen'>
+    <div className='bg-[#171717] min-h-screen'>
       <div className='pl-8 pr-8 flex justify-between'>
         <div className="animate-slidein300 items-center mt-6">
           <div className='flex'>
@@ -54,21 +54,17 @@ export default function Home() {
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier"><path fill="#cbd5e1" d="M209.5 18.66c-7.4-.02-14.8 1.93-19.2 6.96-3.1 3.59-4.8 8.46 0 19.19 5.2 8.08 9.3 19.06 12.9 33.12l-17.9 4.66c-6.1-23.73-13.8-33-18.5-35.1-2.4-1.04-4.7-1.14-8.3 0-3.7 1.11-8.4 3.68-13.5 7.47-7.9 5.8-12.6 13.22-12.4 19.25 3.7 12.42 13.1 18.6 25 24.19l-8 16.8c-4.6-2.1-8.7-4.4-12.4-6.8-13.3-7.3-23.1-10.38-28-9.97-2.6.22-4.1.85-6 2.77-2 2-4.4 5.7-6.5 11.6-3.5 9.9-4 17.7-1.5 21.8 2 3.2 7.2 6.9 20.1 8.2 3.3.1 6.7.2 10.4.4v.1h1.1l.2 18.7c-3.8 0-7.3-.1-10.6-.4-11.1-.1-17.7.8-20.2 2.1-1.6.8-2.1 1.3-2.9 3-.9 1.8-1.8 5.1-2.4 10-.6 4.5-.2 7.6.7 9.8.9 2.1 2.1 3.6 5.3 5.3 6.5 3.5 21.7 5.8 47.3 3.7l1.5 18.6c-17.2 1.5-30.7 1.5-41.5-.5 4.7 15.1 14.5 21.9 25.7 21.9h94c10.6 0 19.8-7.7 23.4-22.1l8.1-32.1 9.9 31.6c4.7 14.8 14.2 22.6 23.5 22.6H383c11.2 0 21.1-6.9 25.7-22-10.9 2.1-24.6 2.1-42.4.6l1.6-18.6c25.6 2.1 40.7-.2 47.2-3.7 3.2-1.7 4.4-3.2 5.3-5.3 1.4-6.3 2.1-19.3-4.5-22.8-2.5-1.2-9.1-2.2-20.2-2.1-3.3.3-6.8.4-10.6.4l.2-18.7h1v-.1c3.8-.2 7.2-.3 10.4-.4 12.9-1.3 18.2-5 20.2-8.2 2.5-4.1 2-11.9-1.6-21.8-2.3-6.2-6-13.77-12.4-14.37-17.1 2.07-29.1 9.67-40.4 16.77l-8-16.8c4.4-1.98 7.7-4.22 11.7-6.56 10.2-6.88 13-13.02 13.3-17.63.2-6.03-4.6-13.45-12.4-19.25-5.2-3.79-9.8-6.35-13.5-7.47-3.6-1.11-6-1.01-8.3 0-1.7.72-3.7 2.34-5.8 5.09-5.7 9.01-10.4 21.31-12.7 30l-18.1-4.66c4.1-15.76 8.8-27.65 15-35.93 3.3-8.79 1.7-13.12-1.1-16.38-9.4-7.73-28.3-9.73-38.7-1.99-4.5 3.34-8.1 8.5-10.9 15-5.5 12.97-7.1 30.87-7.1 43.99v.1l-.2 30.79v.1h-18.6v-.1l-.2-30.83v-.1c0-13.12-1.6-31.02-7.2-44.03-2.7-6.5-6.3-11.66-10.8-15-4.5-2.86-12-4.86-19.4-4.88zm47.2 217.94c-7.9 10.7-19.4 17.6-32.8 17.6h-42.8c2 4.3 5.4 8.2 10 11.8 11.8 9 32.1 15 53.6 16.4l-.6.6c-7.9 8.5-33.2 6.5-48 .9-35-12.8-67.9-21.9-101.28-11.1-43.77 17.3-74.86 66.9-65.53 113.1 10.36 51.3 66.85 124.2 121.11 99.8 61.3-27.6 11.4-114.5-25.3-132.1 8.5 23.2 39.8 79.9 11.4 91.9-34.2 14.4-81.56-43.6-69.48-86.9 20.71-57.4 66.08-49.5 99.38-37.5 60.3 21.7 31.2 169.9 95.2 167.1 38.9-1.7 85.4-60.7 48.7-106.3 3.9 28.6-20.4 75.5-42.9 63.4-33.8-18.1 12.2-84.5 43.7-106.6 24.4-17.1 70.6-28.1 89.5-3.7 29.8 38.6-53.2 74.2-27.7 118.3 22.5 39 75.7 47.4 117.6-10.8-29.1 17.4-68.6 25.8-79.6 1.6-14.1-31.1 62.7-35.3 69.1-76 5.8-36.7-18.3-73.9-49.6-93.9-39.9-25.6-109.3 30.9-160.3 7.7 19.7-2.1 37.9-8.1 48.6-16.7 4.2-3.4 7.3-7 9.3-11h-39.2c-12.9 0-24.2-7-32.1-17.6z"></path></g></svg>
             </div>
-            <span className=" mt-5 text-xl  font-bold text-slate-300">@Note</span>
           </div>
         </div>
         <div className='mt-8 mr-10 '>
           <Link to="/dashboard" className="animate-slidein300">
-            <button className=" flex font-bold bg-slate-300  text-gray-950  md:font-medium tracking-tight rounded-md" onClick={() => {
+            <button className=" flex font-bold bg-[#7f56d9]  text-white  md:font-medium tracking-tight rounded-full" onClick={() => {
             }}>
               <span className='p-2 pr-4 pl-4 font-extrabold'>Join Now</span>
             </button>
           </Link>
         </div>
       </div>
-
-
-
       <div>
         <div className='flex mt-[100px] text-slate-100 justify-center'>
           <div className='text-6xl w-[70%] text-center'>
@@ -78,7 +74,7 @@ export default function Home() {
         </div>
         <div className='flex mt-[50px] text-slate-300 justify-center'>
           <Link to="/dashboard/" className="animate-slidein300">
-            <button className="p-3 pl-6 flex pr-6 text-black font-extrabold  bg-slate-300 font-bold   tracking-tight rounded-md" onClick={() => {
+            <button className="p-3 pl-6 flex pr-6 text-black font-extrabold  bg-slate-300 font-bold   tracking-tight rounded-full" onClick={() => {
             }}>
               <div className=' mr-2 w-6 '>
                 <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -137,21 +133,17 @@ export default function Home() {
                     that will serve you for life.
                   </p>
                 </motion.div>
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                   {features.map((feature, index) => {
                     const Icon = feature.icon;
                     return (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                      <div
                         className="border-1 border-slate-300  p-8 rounded-2xl hover:bg-gray-750 transition-all border border-gray-700"
                       >
                         <Icon className="w-12 h-12 text-blue-400 mb-6" />
                         <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
                         <p className="text-gray-300 text-lg leading-relaxed">{feature.description}</p>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>
@@ -159,7 +151,7 @@ export default function Home() {
             </section>
 
             {/* Benefits Section */}
-            <section className="py-32">
+            <section className="py-16">
               <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols gap-8 items-center">
                   <motion.div
@@ -168,8 +160,8 @@ export default function Home() {
                     transition={{ duration: 0.6 }}
                     className="relative"
                   >
-                    <div className='flex justify-center mt-16  mb-24 '>
-                      <img className="rounded-xl border-2 border-slate-300 animate-slidein300 " src={page5} alt="" />
+                    <div className='flex justify-center mt-8  mb-24 '>
+                      <img className="rounded-xl border-4 border-[#7f56d9]  animate-slidein300 " src={page5} alt="" />
                     </div>
                   </motion.div>
                 </div>
@@ -177,7 +169,7 @@ export default function Home() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 rounded-2xl mt-10 mb-32">
+            <section className="py-16 border border-slate-200 rounded-2xl mt-10 mb-36">
               <div className="container mx-auto px-6 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -196,12 +188,9 @@ export default function Home() {
                 </motion.div>
               </div>
             </section>
-
           </div>
-
         </div>
-
-        <div className='px-36 rounded-md pt-6 pb-20 bg-gray-900 '>
+        <div className='px-36 rounded-md pt-6 pb-20 bg-[#171717]'>
           <div className='py-10 mt-10 pb-20 text-slate-200 flex font-semibold justify-center text-6xl sm:text-4xl lg:text-7xl'>
             <h1>Dashboard</h1>
           </div>
@@ -212,8 +201,6 @@ export default function Home() {
                 <img className=" shadow-xl mt-20 shadow-pink-500/50 rounded-xl animate-slidein300 " src={page4} alt="" />
               </div>
             </div>
-
-
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-1">
               <div className=" rounded-xl bg-gray-800 p-8">
                 <img className="shadow-xl shadow-amber-500/50 rounded-xl animate-slidein300 " src={page2} alt="" />
@@ -221,11 +208,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-
         </div>
-
-        {/* <Pricing/> */}
 
         <footer className="bg-gray-900 text-white py-20">
           <div className="container mx-auto text-center">

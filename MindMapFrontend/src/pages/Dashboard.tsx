@@ -35,7 +35,6 @@ export function Dashboard() {
 
   useEffect(() => {
     const handleResize = () => {
-      // Update state based on screen width
       if (window.innerWidth > 1100) {
         setIsOpen(true);
       } else {
@@ -45,11 +44,7 @@ export function Dashboard() {
 
     // Attach the resize event listener
     window.addEventListener("resize", handleResize);
-
-    // Call it once to set initial state
     handleResize();
-
-    // Cleanup the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -70,7 +65,7 @@ export function Dashboard() {
         <Link to={"/"}><span className="bg-gradient-to-r from-violet-600 to-indigo-600 font-extrabold text-xl text-transparent bg-clip-text"> @Note Pro</span>🎊</Link>
       </div>
 
-      <div className="sticky top-0 z-50 w-full ml-10 bg-gray-700 supports-[backdrop-filter]:bg-background/60  flex justify-between pt-4" >
+      <div className=" z-50 w-full bg-gray-700 supports-[backdrop-filter]:bg-background/60  flex justify-between pt-4" >
         <div className="flex ">
           <Search />
         </div>
@@ -84,7 +79,6 @@ export function Dashboard() {
           }} variant="secondary" text="Share Note" startIcon={<ShareIcon size="lg" />}></Button>
         </div>
       </div>
-
       <Outlet />
     </div>
   </div>

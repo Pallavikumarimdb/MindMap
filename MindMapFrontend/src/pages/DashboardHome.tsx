@@ -15,7 +15,6 @@ export default function DashboardHome() {
             <div className="border-slate-700 absolute top-1/2 left-1/2 w-[36.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
             <div className="border-slate-700 absolute top-1/2 left-1/2 w-[23.125rem] aspect-square border border-n-2/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
             </div>
-
             <div className="relative h-full overflow-hidden mt-16 ml-8 item-center justify-center">
                 <div className=" gap-4 text-gray-950 flex-wrap">
                     <div className='  justify-between'>
@@ -26,7 +25,7 @@ export default function DashboardHome() {
                         <div>
                             <div className='flex mt-10 justify-center'>
                             <Link to="/dashboard/notebook/" className="animate-slidein300">
-                                <button  className="p-2 pt-3 pl-4 h-12 flex pr-4  bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight rounded-md" onClick={() => {
+                                <button  className="p-2 pt-3 pl-4 h-12 flex pr-4  bg-gray-950 text-slate-300 md:text-base md:font-medium tracking-tight rounded-full" onClick={() => {
                                     // setModalOpen(true)
                                 }}>
                                     <div className='mt-1 mr-1 w-4 '>
@@ -45,19 +44,3 @@ export default function DashboardHome() {
         </div>
     )
 }
-
-
-{/* <div className="h-full overflow-hidden mt-16 ml-8 item-center justify-center">
-<div className=" gap-4 text-gray-950 flex-wrap">
-    <div className=' ml-36 flex justify-between'>
-        <img className="animate-slidein500 md:pl-54 h-72 w-72 ml-10 mb-28 mt-28 animate-slowspin " src={imge1} alt="Default Image" />
-        <div className="animate-slidein700 hidden md:block mt-[13%]">
-            <img src={curve} width={322} height={82} alt="Curve 1" />
-            <div className='mt-20 animate-slidein300 text-center text-3xl md:text-4xl font-bold'>
-                <h1>Get Started with @Note</h1>
-            </div>
-        </div>
-        <img className="animate-slidein700 hidden md:block mr-[25%] mt-40 h-56 w-56" src={imge2} alt="Default Image" />
-    </div>
-</div>
-</div> */}

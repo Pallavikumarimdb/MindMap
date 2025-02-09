@@ -60,13 +60,13 @@ export default function MyEditor() {
             type="text"
             value={noteName}
             onChange={(e) => setNoteName(e.target.value)}
-            className="w-full sm:w-[70%] px-4 py-2 border rounded bg-gray-700 shadow-inner shadow-slate-300"
+            className="w-full sm:w-[40%] px-4 py-2 border rounded bg-gray-700 shadow-inner shadow-slate-300"
           />
           <button
             onClick={saveNote}
             disabled={loading}
-            className={`w-full sm:w-auto ml-0 sm:ml-1 font-bold px-4 py-2 h-11 border rounded ${
-              loading ? "bg-gray-400" : "bg-blue-500 text-gray-950 hover:bg-blue-600"
+            className={`w-full sm:w-auto ml-0 sm:ml-1 font-bold px-4 py-2 h-11 border rounded-full ${
+              loading ? "bg-[#7f56d9]" : "bg-gray-300  text-gray-950 hover:bg-blue-600"
             }`}
           >
             {loading ? (
@@ -107,7 +107,6 @@ export default function MyEditor() {
           onChange={(newContent) => setContent(newContent)}
         />
       </div>
-
       {showPopup && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <div className="bg-gray-700 rounded-lg p-6 w-96 text-center shadow-lg">
