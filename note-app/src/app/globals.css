@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1{
+  font-size:36px
+}
+
+h1{
+  font-weight:bolder
+}
+
+h2{
+  font-size:30px
+}
+
+h2{
+  font-weight:bold
+}
+
+h3{
+  font-size:20px
+}
+
+h3{
+  font-weight:900
+}
+
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 23px;
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
