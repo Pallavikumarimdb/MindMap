@@ -11,68 +11,6 @@ app.use(cors());
 
 
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-export const runtime = "edge";
-
-
-//@ts-ignore
-app.post("/api/generate", async (req, res)=>{
-  if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === "") {
-    return new Response(
-      "Missing GEMINI_API_KEY – make sure to add it to your .env file.",
-      {
-        status: 400,
-      },
-    );
-  }
-
-  try {
-    const { prompt } = req.body;
-
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
-    const fullPrompt = `You are an AI writing assistant that continues existing text based on context from prior text. Give more weight/priority to the later characters than the beginning ones. Limit your response to no more than 200 characters, but make sure to construct complete sentences.  Here's the text to continue:\n\n${prompt}`; // Construct full prompt
-
-    const result = await model.generateContent({
-        contents: [
-            {
-              role: 'user',
-              parts: [
-                {
-                  text: fullPrompt,
-                }
-              ],
-            }
-        ],
-        generationConfig: {
-          maxOutputTokens: 1000,
-          temperature: 0.1,
-        }
-    });
-
-    const text = result.response.text();
-
-    const stream = new ReadableStream({
-      async pull(controller) {
-        const encoder = new TextEncoder(); // Create encoder outside the loop for efficiency
-        for (const char of text) {
-          controller.enqueue(encoder.encode(char));
-          await new Promise(resolve => setTimeout(resolve, 20)); // Simulate streaming
-        }
-        controller.close();
-      },
-    });
-
-    return new Response(stream);
-
-  } catch (error) {
-    console.error("Error calling Gemini API:", error);
-    return new Response("Error processing request.", { status: 500 });
-  }
-})
-
-
 
 
 app.post("/api/v1/signup", async (req, res)=>{
