@@ -1,3 +1,4 @@
+
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     let generatedText = result?.response?.text() ?? "";
 
     // Clean text for compatibility
-    generatedText = generatedText.replace(/[\u200B-\u200D\uFEFF<>]/g, "").trim();
+    // generatedText = generatedText.replace(/[\u200B-\u200D\uFEFF<>]/g, "").trim();
     console.log("Generated text:", generatedText);
     return new Response(
       new ReadableStream({
