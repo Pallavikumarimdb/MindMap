@@ -21,10 +21,12 @@
     "lucide-react": "^0.474.0",
     "next": "15.1.6",
     "novel": "^0.1.22",
+    "novel-lightweight": "^0.2.1",
     "openai": "^4.83.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
+    "readable-stream": "^4.7.0",
     "sonner": "^1.7.1",
     "ts-pattern": "^5.0.8"
   },

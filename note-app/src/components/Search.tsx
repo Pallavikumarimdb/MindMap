@@ -63,7 +63,7 @@ export default function Search() {
                     <div className="w-screen h-screen bg-slate-500 fixed top-0 left-0 opacity-60 flex ">
                     </div>
 
-                    <div className="z-10 fixed text-center absolute z-10 top-24 left-10 mr-10 p-4 bg-[#202020] border rounded-xl shadow-lg">
+                    <div className="z-10 fixed text-center absolute z-10 top-24 left-20 ml-36 mr-10 p-4 bg-[#202020] border rounded-xl shadow-lg">
                         <button
                             onClick={closePopup}
                             className="my-2 px-2 py-1 bg-slate-200 text-black rounded hover:bg-red-700"

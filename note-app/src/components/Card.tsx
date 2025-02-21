@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef } from "react";
-// import '@mariusbongarts/previewbox/dist'; 
+import '@mariusbongarts/previewbox/dist'; 
 import { Trash2 } from "lucide-react";
 
 
@@ -56,7 +56,7 @@ export function Card({ title, link, type, contentId, onDelete }: CardProps) {
           </blockquote>
         )}
         {type === "general" && <div>
-          {/* <previewbox-link href={link} className="w-full"></previewbox-link> */}
+          <previewbox-link href={link} className="w-full"></previewbox-link>
           </div>}
       </div>
 
